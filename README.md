@@ -42,3 +42,17 @@ Position the paragraph absolutely
 -advanced layout
 Block element include[ paragraph<p> header`<h1>`list`<ul><ol><li> `div`<div>`]
 Inline element include[hyperlink`<a>image<img>form-fill<input>spans<span>`]
+-float let you slide the content of the `<span>`,more let you slide the image inside its container element
+-two kinds of gradients(radial and linear)
+
+-the css property called ’transition ’ to instruct the paragraph that anytime its height changes, it should build in a half-second delay.(do all together due to different browsers)
+eg. transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+
+- <script>
+        $('div').on('click', function () {
+            $(this).toggleClass('show-description');
+        });
+    </script>
+
