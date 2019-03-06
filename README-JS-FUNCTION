@@ -1,0 +1,193 @@
+-New chapter: function
+Chapter1
+-eg
+Const width=8;
+Const height=6;
+Const area=width*height;
+console.log(area);
+//output 48
+Function Declarations
+
+Eg
+console.log('greetWorld'());//output: Hello,World!
+function greetWorld(){
+  console.log('Hello,World!');
+}
+Eg
+function getReminder() {
+  console.log('Water the plants.');
+}
+
+function greetInSpanish() {
+  console.log('Buenas Tardes.');
+Eg
+function sayThanks() {
+  console.log('Thank you for your purchase! We appreciate your business.');
+}
+
+sayThanks();
+sayThanks();
+sayThanks();
+
+-Parameters and Arguments
+
+ The values that are passed to the function when it is called are called arguments. 
+
+
+Eg
+function sayThanks(name) {
+  console.log('Thank you for your purchase ' + name + '! We appreciate your business.');
+}
+
+sayThanks('Cole');
+//output :Thank you for your purchase Cole!We appreciate your business.
+
+-Calling a Function
+-Default Parameters
+Eg
+function greeting(name='stranger'){
+  console.log('Hello,${name}!');
+}
+greeting('Ncik');//output:Hello,Nick!
+greeting(); //output: Hello, stranger!
+Eg
+function makeShoppingList(item1 = 'milk', item2 = 'bread', item3 = 'eggs'){
+  console.log(`Remember to buy ${item1}`);
+  console.log(`Remember to buy ${item2}`);
+  console.log(`Remember to buy ${item3}`);
+}
+
+-Return
+Eg
+function rectangleArea(width,height){
+  let area=width * height
+}
+console.log(rectangleArea(5,7));
+//prints undefined
+In fact, the function worked fine, and the computer did calculate the area as 35, but we didn't capture it. So how can we do that? With the keyword return!
+
+Eg
+function rectangleArea(width,height){
+  if (width<0||height<0){
+    return 'You need positive integers to calculate area!';
+  }
+  return width * height;
+}
+If an argument for width or height is less than 0, then rectangleArea() will return 'You need positive integers to calculate area!'. The second return statement width * height will not run.
+Eg
+function monitorCount(rows, columns) {
+  return rows * columns;
+}
+
+const numOfMonitors = monitorCount(5, 4);
+
+console.log(numOfMonitors);
+//print 20
+-Helper Functions
+Eg
+function multiplyByNineFifths(number){
+  return number * (9/5);
+}
+function getFahrenheit(celsius){
+  return multiplyByNineFifths(celsius)+32;
+}
+getFahrenheit(15);
+//return 59
+getFahrenheit() is called and 15 is passed as an argument.
+The code block inside of getFahrenheit() calls multiplyByNineFifths() and passes 15 as an argument.
+multiplyByNineFifths() takes the argument of 15 for the number parameter.
+The code block inside of multiplyByNineFifths()function multiplies 15 by (9/5), which evaluates to 27.
+27 is returned back to the function call ingetFahrenheit().
+getFahrenheit() continues to execute. It adds 32to 27, which evaluates to 59.
+Finally, 59 is returned back to the function call getFahrenheit(15).
+Eg
+function monitorCount(rows, columns) {
+  return rows * columns;
+}
+
+function costOfMonitors(rows, columns) {
+ return monitorCount(rows, columns)  * 200;
+}
+
+const totalCost = costOfMonitors(5, 4);
+
+console.log(totalCost);
+//print 4000
+-Function Expressions
+
+Eg
+const plantNeedsWater = function(day) {
+  if(day === 'Wednesday'){
+    return true;
+  } else {
+    return false;
+  }
+};
+
+plantNeedsWater('Tuesday');
+
+console.log(plantNeedsWater('Tuesday'));
+//print false
+-Arrow Functions
+ES6 introduced arrow function syntax, a shorter way to write functions by using the special "fat arrow" () => notation.
+you first include the parameters inside the ( ) and then add an arrow => that points to the function body surrounded in { } like this:
+Eg
+const retangleArea=(width,height)=>{
+  let area= width * height;
+  return area
+}
+
+-eg
+const plantNeedsWater = (day) => {
+  if (day === 'Wednesday') {
+    return true;
+  } else {
+    return false;
+  }
+};
+-Concise Body Arrow Functions
+-Functions that take only a single parameter do not need that parameter to be enclosed in parentheses. However, if a function takes zero or multiple parameters, parentheses are required.
+
+-
+A function body composed of a single-line block does not need curly braces. Without the curly braces, whatever that line evaluates will be automatically returned. The contents of the block should immediately follow the arrow => and the return keyword can be removed. This is referred to as implicit return.
+
+Eg same function
+1.
+const squareNum=(num)=>{
+  return num * num;
+}
+2.
+const squareNum=num=>num * num;
+Eg
+const plantNeedsWater = day => day === 'Wednesday' ? true : false;
+
+-Review Functions
+Give yourself a pat on the back, you just navigated through functions!
+In this lesson, we covered some important concepts about functions:
+A function is a reusable block of code that groups together a sequence of statements to perform a specific task.
+A function declaration :
+
+A parameter is a named variable inside a function's block which will be assigned the value of the argument passed in when the function is invoked:
+
+To call a function in your code:
+
+ES6 introduces new ways of handling arbitrary parameters through default parameters which allow us to assign a default value to a parameter in case no argument is passed into the function.
+To return a value from a function, we use a return statement.
+To define a function using function expressions:
+
+To define a function using arrow function notation:
+Function definition can be made concise using concise arrow notation:
+
+It's good to be aware of the differences between function expressions, arrow functions, and function declarations. As you program more in JavaScript, you'll see a wide variety of how these function types are used.
+
+
+
+
+
+
+
+
+
+
+
+
