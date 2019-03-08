@@ -425,6 +425,286 @@ for (let counter=0; counter<4; counter++){
 
 -Looping in Reverse
 
+// The loop below loops from 0 to 3. Edit it to loop backwards from 3 to 0
+for (let counter = 3; counter >= 0; counter--){
+  console.log(counter);
+}
+//3
+2
+1
+0
+-Looping through Arrays
+const animals=['Grizzly Bear', 'Sloth', 'Sea Lion'];
+for(let i=0; i<animals.length; i++){
+  console.log(animals[i]);
+}
+g(animals[i]);
+}
+//Grizzly Bear 
+Sloth 
+Sea Lion
+
+
+Eg
+const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+for (let i = 0; i < vacationSpots.length; i++ ){
+  console.log('I would love to visit ' + vacationSpots[i]);
+}
+//I would love to visit Bali
+I would love to visit Paris
+I would love to visit Tulum
+
+-Nested Loops
+Eg
+const myArray=[6,19,20];
+const youArray=[19,81,2];
+for(let i=0; i<myArray.length; i++){
+  for(let j=0; j<yourArray.length; j++){
+    if(myArray[i]===yourArray[j]){
+      console.log('Both loop have the number:'+ yourArray[j])
+    }
+  }
+}
+
+Doesnt work
+Eg
+let bobsFollowers = ['Joe', 'Marta', 'Sam', 'Erin'];
+let tinasFollowers = ['Sam', 'Marta', 'Elle'];
+let mutualFollowers = [];
+
+for(let i=0; i<bobsFollowers.length; i++){
+  for(let j=0; j<tinasFollowers.length; j++){
+    if(bobsFollowers[i]===tinasFollowers[j]){
+      mutualFollowers.push(bobsFollowers[i]);
+    }
+  }
+  
+}
+ Doesnt work
+
+-The While Loop
+// A for loop that prints 1, 2, and 3
+for (let counterOne = 1; counterOne < 4; counterOne++){
+  console.log(counterOne);
+}
+
+// A while loop that prints 1, 2, and 3
+let counterTwo = 1;
+while (counterTwo < 4) {
+  console.log(counterTwo);
+  counterTwo++;
+}
+What would happen if we didn't increment counterTwo inside our block? If we didn't include this, counterTwo would always have its initial value, 0. That would mean the testing condition counterTwo < 4 would always evaluate to true and our loop would never stop running! This is called an infinite loop and it's something we always want to avoid. Infinite loops can take up all of your computer's processing power potentially freezing your computer.
+
+-eg
+const cards = ['diamond', 'spade', 'heart', 'club'];
+
+// Write your code below
+let currentCard;
+
+while ( currentCard != 'spade') {
+  currentCard = cards[Math.floor(Math.random() * 4)];
+	console.log(currentCard);
+}
+
+//the result is different each time
+
+-Do...While Statements
+
+In some cases, you want a piece of code to run at least once and then loop based on a specific condition after its initial run. This is where the do...while statement comes in.
+
+Eg
+let countString='';
+let i=0;
+do{
+  countString=countString+i; i++
+} while(i<5);
+console.log(countString);
+
+//01234
+
+Note that the while and do...while loop are different! Unlike the while loop, do...while will run at least once whether or not the condition evaluates to true.
+const firstMessage = 'I will print!';
+const secondMessage = 'I will not print!'; 
+
+// A do while with a stopping condition that evaluates to false
+do {
+ console.log(firstMessage)
+} while (true === false);
+
+// A while loop with a stopping condition that evaluates to false
+while (true === false){
+  console.log(secondMessage)
+};
+//ouput : I will print
+
+Eg
+1.
+We'd like a program to simulate part of the cake-baking process. Depending on the recipe, a different number of cups of sugar is required. Create the variable cupsOfSugarNeeded, and assign it a number value of your choosing. The cups of sugar must be added to the batter one at a time. Declare the variable cupsAdded and assign it the value 0.
+2.
+We have a sweet tooth, so we want to add at least one cup of sugar to the batter even if the value of cupsOfSugarNeeded is 0. Create a do...while loop which increments cupsAdded by one while cupsAdded is less than cupsOfSugarNeeded.
+
+let cupsOfSugarNeeded = 3;
+let cupsAdded = 0;
+
+do {
+ cupsAdded++
+} while (cupsAdded < cupsOfSugarNeeded);
+
+-The break Keyword
+The break keyword allows programs to “break” out of the loop from within the loop's block.
+Eg
+for (let i = 0; i < 99; i++) {
+  if (i > 2 ) {
+    break;
+  }
+  console.log('Banana.');
+}
+
+console.log('Orange you glad I broke out the loop!');
+
+
+//Banana.
+Banana.
+Banana.
+Orange you glad I broke out the loop!
+
+Question
+1.
+Log each element from rapperArray in a forloop with the iterator variable i.
+Stuck? Get a hint
+2.
+After the for loop, log the string "And if you don't know, now you know." to the console. Note: since there's a single quote character, ', in our string, we can use double quotes around the string to make sure character prints.
+3.
+Add a break inside your loop's block that breaks out of the loop if the element at the current index in the rapperArray is 'Notorious B.I.G.'.
+const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+
+// Write you code below
+for (let i = 0; i < rapperArray.length; i++){
+  console.log(rapperArray[i]);
+  if (rapperArray[i] === 'Notorious B.I.G.'){
+    break;
+  }
+}
+
+console.log("And if you don't know, now you know.");
+
+//Lil' Kim
+Jay-Z
+Notorious B.I.G.
+And if you don't know, now you know.
+
+
+-Review
+Great job! In this lesson, we learned how to write cleaner code with loops. You now know:
+Loops perform repetitive actions so we don’t have to code that process manually every time.
+How to write for loops with an iterator variable that increments or decrements
+How to use a for loop to iterate through an array
+A nested for loop is a loop inside another loop
+while loops allow for different types of stopping conditions
+Stopping conditions are crucial for avoiding infinite loops.
+do...while loops run code at least once— only checking the stopping condition after the first execution
+The break keyword allows programs to leave a loop during the execution of its block
+
+
+-New chapter HIGHER-ORDER FUNCTIONS
+-Functions as Data
+Since functions are a type of object, they have properties such as .length and .name and methods such as .toString(). You can see more about the methods and properties of functions in the documentation.
+Eg
+const announceThatIAmDoingImportantWork = () => {
+    console.log("I’m doing very important work!");
+};
+const busy = announceThatIAmDoingImportantWork;
+
+busy(); // This function call barely takes any space!
+//I’m doing very important work!
+
+Eg
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+
+// Write your code below
+const is2p2 = checkThatTwoPlusTwoEqualsFourAMillionTimes;
+is2p2();
+console.log(is2p2.name);
+// output: checkThatTwoPlusTwoEqualsFourAMillionTimes
+
+-Functions as Parameters
+A higher-order function is a function that either accepts functions as parameters, returns a function, or both! We call the functions that get passed in as parameters and invoked callback functionsbecause they get called during the execution of the higher-order function.
+Eg
+const timeFuncRuntime = funcParameter => {
+   let t1 = Date.now();
+   funcParameter();
+   let t2 = Date.now();
+   return t2 - t1;
+}
+
+const addOneToOne = () => 1 + 1;
+
+timeFuncRuntime(addOneToOne);
+This higher-order function could be used with any callback function which makes it a potentially powerful piece of code.
+We then invoked timeFuncRuntime() first with the addOneToOne() function - note how we passed in addOneToOne and did not invoke it.
+timeFuncRuntime(() => {
+  for (let i = 10; i>0; i--){
+    console.log(i);
+  }
+});
+Doesnt work
+In this example, we invoked timeFuncRuntime() with an anonymous function that counts backwards from 10. Anonymous functions can be arguments too!
+Eg
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+
+const addTwo = num => num + 2;
+
+const timeFuncRuntime = funcParameter => {
+  let t1 = Date.now();
+  funcParameter();
+  let t2 = Date.now();
+  return t2 - t1;
+};
+
+// Write your code below
+
+const time2p2 = timeFuncRuntime(checkThatTwoPlusTwoEqualsFourAMillionTimes);
+
+const checkConsistentOutput = (func, val) => {
+    let firstTry = func(val);
+    let secondTry = func(val);
+    if (firstTry === secondTry) {
+        return firstTry
+    } else {
+        return 'This function returned inconsistent results'
+    }
+};
+
+checkConsistentOutput(addTwo, 10);
+Dont understand
+Review
+Abstraction allows us to write complicated code in a way that's easy to reuse, debug, and understand for human readers
+We can work with functions the same way we would any other type of data including reassigning them to new variables
+JavaScript functions are first-class objects, so they have properties and methods like any object
+Functions can be passed into other functions as parameters
+A higher-order function is a function that either accepts functions as parameters, returns a function, or both
+
+
+
+
+
+
+
+
+
 
 
 
