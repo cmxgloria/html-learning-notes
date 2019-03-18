@@ -1,3 +1,104 @@
+-Review and update 18/3/2019
+-css setup and selector
+It is a self-closing tag and requires the following three attributes:
+href — like the anchor element, the value of this attribute must be the address, or path, to the CSS file.
+type — this attribute describes the type of document that you are linking to (in this case, a CSS file). The value of this attribute should be set to text/css.
+rel — this attribute describes the relationship between the HTML file and the CSS file. Because you are linking to a stylesheet, the value should be set to stylesheet.
+<link href="https://www.codecademy.com/stylesheets/style.css" type="text/css" rel="stylesheet">
+If the CSS file is stored in the same directory as your HTML file, then you can specify a relative path instead of a URL, like so:
+<link href="./style.css" type="text/css" rel="stylesheet">
+
+-Write a class named .uppercase. Then, write this inside of its curly braces:
+Eg
+.uppercase{
+  text-transform: uppercase;
+}
+//print out all the letter in uppercase
+
+-ID Name
+CSS can select HTML elements by their idattribute. To select an id element, CSS prepends the id name with a hashtag (#)
+Eg
+<h1 id="article-title">Top Vacation Spots</h1>
+  <h5>By: Stacy Gray</h5>
+#article-title{
+  font-family: cursive;
+  text-transform: capitalize;
+}
+//
+Top Vacation Spots
+-Classes and IDs
+CSS can select HTML elements by their tag, class, and ID. CSS classes and IDs have different purposes, which can affect which one you use to style HTML elements.
+CSS classes are meant to be reused over many elements. By writing CSS classes, you can style elements in a variety of ways by mixing classes on HTML elements.
+While classes are meant to be used many times, an ID is meant to style only one element.
+-Specificity
+A best practice in CSS is to style elements while using the lowest degree of specificity, so that if an element needs a new style, it is easy to override.
+IDs are the most specific selector in CSS, followed by classes, and finally, tags. 
+-Chaining Selectors
+When writing CSS rules, it’s possible to require an HTML element to have two or more CSS selectors at the same time.
+This is done by combining multiple selectors, which we will refer to as chaining. For instance, if there was a .special class for h1 elements, the CSS would look like:
+Eg
+H1.special{
+}
+The code above would select only the h1 elements that have a class of special. If a p element also had a class of special, the rule in the example would not style the paragraph.
+
+Eg
+h1 {
+  color: maroon;
+}
+h2.destination{
+  font-family: cursive;
+}
+
+This will make the destinations cursive, like the title of the article.
+-Nested Elements
+.main-list selects the .main-list element (the unordered list element). 
+Eg
+.main-list li{
+}
+
+Eg
+.description h5 {
+  color: teal;
+}
+
+-Chaining and Specificity
+p{
+  color: red;
+ 
+}
+.main p{
+  color: blue;
+}
+-Important
+There is one thing that is even more specific than IDs: !important. !important can be applied to specific attributes instead of full rules. It will override any style no matter how specific it is.
+Once !important is used, it is very hard to override. it’s best to avoid !important altogether. 
+
+p {
+  color: blue !important;
+}
+
+
+.main p {
+  color: red;
+}
+Since !important is used on the p selector’s colorattribute, all p elements will appear blue, even though there is a more specific .main p selector that sets the color attribute to red
+-Multiple Selectors
+--h1 {
+  font-family: Georgia;
+}
+
+.menu {
+  font-family: Georgia;
+}
+
+--h1, 
+.menu {
+  font-family: Georgia;
+}
+Above those two samples are the same.
+
+
+
 Inlinestyle
 Example:
 <!DOCTYPE html>
