@@ -96,6 +96,40 @@ Since !important is used on the p selector’s colorattribute, all p elements wi
   font-family: Georgia;
 }
 Above those two samples are the same.
+--new chapter CSS VISUAL RULES
+Css structure
+CSS declarations consist of a property and a value.
+Property — the property you’d like to style of that element (i.e., size, color, etc.).
+Value — the value of the property (i.e., 18px for size, blue for color, etc.).
+-Font Weight
+ font-weight property controls how bold or thin text appears.
+P{
+font-weight: bold;
+}
+-The text-align property can be set to one of the following three values:
+left — aligns text to the left hand side of its parent element, which in this case is the browser.
+center — centers text inside of its parent element.
+right — aligns text to the right hand side of its parent element.
+-color: this property styles an element’s foreground color
+background-color: this property styles an element’s background color
+-
+-Opacity
+It’s measured from 0 to 1, with 1 representing 100%, or fully visible and opaque, and 0 representing 0%, or fully invisible.
+ 
+ 
+.caption {
+  opacity: 0.75;
+}
+-Background Image
+Eg
+.main-banner {
+  background-image: url("https://www.example.com/image.jpg");
+}
+-The url can be a file within your project, or it can be a link to an external site.If there was an image folder in the project, with an image named mountains.jpg, the relative file path would look like:
+.main-banner {
+  background-image: url("images/mountains.jpg");
+}
+
 
 
 
