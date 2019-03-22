@@ -1,0 +1,3222 @@
+-Review and update
+-css setup and selector
+It is a self-closing tag and requires the following three attributes:
+href — like the anchor element, the value of this attribute must be the address, or path, to the CSS file.
+type — this attribute describes the type of document that you are linking to (in this case, a CSS file). The value of this attribute should be set to text/css.
+rel — this attribute describes the relationship between the HTML file and the CSS file. Because you are linking to a stylesheet, the value should be set to stylesheet.
+<link href="https://www.codecademy.com/stylesheets/style.css" type="text/css" rel="stylesheet">
+If the CSS file is stored in the same directory as your HTML file, then you can specify a relative path instead of a URL, like so:
+<link href="./style.css" type="text/css" rel="stylesheet">
+
+-Write a class named .uppercase. Then, write this inside of its curly braces:
+Eg
+.uppercase{
+  text-transform: uppercase;
+}
+//print out all the letter in uppercase
+
+-ID Name
+CSS can select HTML elements by their idattribute. To select an id element, CSS prepends the id name with a hashtag (#)
+Eg
+<h1 id="article-title">Top Vacation Spots</h1>
+  <h5>By: Stacy Gray</h5>
+#article-title{
+  font-family: cursive;
+  text-transform: capitalize;
+}
+//
+Top Vacation Spots
+-Classes and IDs
+CSS can select HTML elements by their tag, class, and ID. CSS classes and IDs have different purposes, which can affect which one you use to style HTML elements.
+CSS classes are meant to be reused over many elements. By writing CSS classes, you can style elements in a variety of ways by mixing classes on HTML elements.
+While classes are meant to be used many times, an ID is meant to style only one element.
+-Specificity
+A best practice in CSS is to style elements while using the lowest degree of specificity, so that if an element needs a new style, it is easy to override.
+IDs are the most specific selector in CSS, followed by classes, and finally, tags. 
+-Chaining Selectors
+When writing CSS rules, it’s possible to require an HTML element to have two or more CSS selectors at the same time.
+This is done by combining multiple selectors, which we will refer to as chaining. For instance, if there was a .special class for h1 elements, the CSS would look like:
+Eg
+H1.special{
+}
+The code above would select only the h1 elements that have a class of special. If a p element also had a class of special, the rule in the example would not style the paragraph.
+
+Eg
+h1 {
+  color: maroon;
+}
+h2.destination{
+  font-family: cursive;
+}
+
+This will make the destinations cursive, like the title of the article.
+-Nested Elements
+.main-list selects the .main-list element (the unordered list element). 
+Eg
+.main-list li{
+}
+
+Eg
+.description h5 {
+  color: teal;
+}
+
+-Chaining and Specificity
+p{
+  color: red;
+ 
+}
+.main p{
+  color: blue;
+}
+-Important
+There is one thing that is even more specific than IDs: !important. !important can be applied to specific attributes instead of full rules. It will override any style no matter how specific it is.
+Once !important is used, it is very hard to override. it’s best to avoid !important altogether. 
+
+p {
+  color: blue !important;
+}
+
+
+.main p {
+  color: red;
+}
+Since !important is used on the p selector’s colorattribute, all p elements will appear blue, even though there is a more specific .main p selector that sets the color attribute to red
+-Multiple Selectors
+--h1 {
+  font-family: Georgia;
+}
+
+.menu {
+  font-family: Georgia;
+}
+
+--h1, 
+.menu {
+  font-family: Georgia;
+}
+Above those two samples are the same.
+
+--new chapter CSS VISUAL RULES
+Css structure
+CSS declarations consist of a property and a value.
+Property — the property you’d like to style of that element (i.e., size, color, etc.).
+Value — the value of the property (i.e., 18px for size, blue for color, etc.).
+-Font Weight
+ font-weight property controls how bold or thin text appears.
+P{
+font-weight: bold;
+}
+-The text-align property can be set to one of the following three values:
+left — aligns text to the left hand side of its parent element, which in this case is the browser.
+center — centers text inside of its parent element.
+right — aligns text to the right hand side of its parent element.
+-color: this property styles an element’s foreground color
+background-color: this property styles an element’s background color
+-
+-Opacity
+It’s measured from 0 to 1, with 1 representing 100%, or fully visible and opaque, and 0 representing 0%, or fully invisible.
+ 
+ 
+.caption {
+  opacity: 0.75;
+}
+-Background Image
+Eg
+.main-banner {
+  background-image: url("https://www.example.com/image.jpg");
+}
+-The url can be a file within your project, or it can be a link to an external site.If there was an image folder in the project, with an image named mountains.jpg, the relative file path would look like:
+.main-banner {
+  background-image: url("images/mountains.jpg");
+}
+
+----Inlinestyle
+Example:
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vacation World</title>
+</head>
+
+<body>
+  <img src="https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-2/explorer.jpeg" />
+  <h1 class="title">Top Vacation Spots</h1>
+  <h5>By: Stacy Gray</h5>
+  <h6>Published: 2 Days Ago</h6>
+
+  <p>The world is full of fascinating places. Planning the perfect vacation involves packing up, leaving home, and experiencing something new.</p>
+
+  <h2 class="destination">1. Florence, Italy</h2>
+  <div class="description">A city-size shrine to the Renaissance, Florence offers frescoes, sculptures, churches, palaces, and other monuments from the richest cultural flowering the world has known. Names from its dazzling historical pastDante, Michelangelo, Galileo, Machiavelliare some of the most resonant of the medieval age. <a href="http://travel.nationalgeographic.com/travel/city-guides/florence-italy/" target="_blank">Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Museums</li>
+      <li>Bike Tours</li>
+      <li>Historical Monuments</li>
+    </ul>
+  </div>
+
+  <h2 class="destination">2. Beijing, China</h2>
+  <div class="description">A city in the midst of reinventing itself and continuing to build on the success of the 2008 Summer Olympics, Beijing is a place of frenzied construction. New housing, new roads, and new sports venues seem to spring up overnight. At the same time, the capital of the People Republic of China remains an epicenter of tradition, with the treasures of nearly 2,000 years as the imperial capital still on view in the famed Forbidden City and in the luxuriant pavilions and gardens of the Summer Palace.
+    <a href="http://travel.nationalgeographic.com/travel/city-guides/beijing-china/" target="_blank">Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Biking</li>
+      <li>Historical Sites</li>
+      <li>Restaurants and Dining</li>
+    </ul>
+  </div>
+
+  <h2 class="destination">3. Seoul, South Korea</h2>
+  <div class="description">The Korean capital is a city of contrasts. Fourteenth-century city gates squat in the shadow of 21st-century skyscrapers, while the broad Han River is back-dropped by granite mountains rising in the city centercomplete with alpine highways speeding around their contours and temples nestling among their crags. Fashionable, gadget-laden youths battle for sidewalk space with fortune-tellers and peddlers, while tiny neighborhoods of traditional cottages contrast with endless ranks of identical apartments.
+    <a href="http://travel.nationalgeographic.com/travel/city-guides/seoul-south-korea/" target="_blank">Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Parasailing</li>
+      <li>Segway Tours</li>
+      <li>Spas and Resorts</li>
+    </ul>
+  </div>
+
+  <h2> More Destinations </h2>
+  <ul>
+    <li><h4 class="destination">Jackson Hole, Wyoming</h4></li>
+    <li><h4 class="destination">Cape Town, South Africa</h4></li>
+    <li><h4 class="destination">La Paz, Bolivia</h4></li>
+  </ul>
+
+  <p>&mdash;Best of luck with your travels, and be sure to send pictures and stories. We"d love to hear them!</p>
+
+<p style="color:red;font-family:Arial;font-size:20px;">I'm learning to code!</p>
+
+
+</body>
+
+</html>
+
+-Introduction To Visual Rules
+
+-example
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The Rise of Soccer in The US</title>
+
+  <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="content">
+    <img src="https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-4/htmlcss1-img_writer-avatar.jpg" class="writer-img">
+    <h3 class="byline">Article By: Jane Dover</h3>
+    <h1>How the Rise of Soccer in the US Is Changing the Face of Youth Sports</h1>
+    <h2>The focus on soccer in youth sports programs is exploding nation-wide</h2>
+    <p>When the first World Cup arrived in the US in the 90's everyone officially declared that soccer was it. Well it's taken it's time but we can definitely see the influence of soccer, especially women's soccer, across the US. This year, 3 million kids
+      played in youth soccer leagues with 2/3 of those leagues for girls. In fact, in the 12-17 age range the MLS has surpassed the MLB and NFL in popularity.</p>
+    <p>Part of this meteoric rise can be attributed to the impressively soaring ad dollars being pumped into the Women's World Cup games in 2014. The women's games generated $40 million for Fox, that's definitely not chump change. And those advertisers,
+      like ATT, Coca Cola, Verizon, Nike, Visa, and other heavy hitters, are working to make sure they see those numbers grow year after year by investing in youth soccer facilities and promoting programs across the country. </p>
+    <p>Now that big business is involved you can be assured you'll see a continued rise in popularity in soccer across the country for years to come. </p>
+  </div>
+
+  <div class="image">
+    <p class="caption">The local semi- pro soccer team in Seattle, WA plays an international friendly</p>
+  </div>
+
+</body>
+
+</html>
+
+-css
+body {
+  /* Old browsers */
+  background: #141E30;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(-45deg, #35577D, #141E30);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(-45deg, #35577D, #141E30);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 2em;
+  padding-top: 100px;
+  width: 100%;
+}
+
+h2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+  font-size: 22px;
+  line-height: 24px;
+  padding-bottom: 30px;
+  text-align: left;
+  width: 70%;
+}
+
+p {
+  color: AliceBlue;
+  line-height: 1.3em;
+  text-align: left;
+  width: 100%;
+}
+
+.byline {
+  font-family: Helvetica;
+  color: rgba(255, 255, 255, 0.5);
+  float: left;
+  font-size: 14px;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+.caption {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 14px;
+  margin-left: 20px;
+  padding: 10px;
+  position: relative;
+  top: 80%;
+  width: 60%;
+}
+
+.content {
+  padding: 40px;
+}
+
+.image {
+  background-image: url("https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-4/htmlcss1-img_soccer.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
+.writer-img {
+  -webkit-box-shadow: 5px 0px 5px 0px rgba(0, 0, 50, 0.97);
+  -moz-box-shadow: 5px 0px 5px 0px rgba(0, 0, 50, 0.97);
+  box-shadow: 5px 0px 5px 0px rgba(0, 0, 50, 0.97);
+  float: left;
+  width: 50px;
+}
+
+
+-Introduction to the Box Model
+-Review box model and updated
+In this lesson, you’ll learn about the following aspects of the box model:
+The dimensions of an element’s box.
+The borders of an element’s box.
+The paddings of an element’s box.
+The margins of an element’s box.
+ake some time to edit the code to the right. See if you can figure out how these following properties impact an element’s display:
+height
+width
+padding
+border
+margin
+overflow
+The properties include:
+Width and height — specifies the width and height of the content area.
+Padding — specifies the amount of space between the content area and the border.
+Border — specifies the thickness and style of the border surrounding the content area and padding.
+Margin — specifies the amount of space between the border and the outside edge of the element.
+An element’s content has two dimensions: a height and a width.
+p {
+  height: 80px;
+  width: 240px;
+}
+-Borders
+Borders can be set with a specific width, style, and color.
+width — The thickness of the border. A border’s thickness can be set in pixels or with one of the following keywords: thin, medium, or thick.
+style — The design of the border. Web browsers can render any of 10 different styles. Some of these styles include: none, dotted, and solid.
+color — The color of the border. Web browsers can render colors using a few different formats, including 140 built-in color keywords.
+
+
+p {
+  border: 3px solid coral;
+}
+The default border is medium none color, where coloris the current color of the element. 
+p.content-header {
+  height: 80px;
+  width: 240px;
+  border: solid coral;
+}
+In this example, the border style is set to solid and the color is set to coral. The width is not set, so it defaults to medium
+-Border Radius
+div.container {
+  border: 3px solid rgb(22, 77, 100);
+  border-radius: 5px;
+}
+You can create a border that is a perfect circle by setting the radius equal to the height of the box, or to 100%.
+div.container {
+  height: 60px;
+  width: 60px;
+  border: 3px solid rgb(22, 77, 100);
+  border-radius: 100%;
+}
+
+-Padding I
+p.content-header {
+  border: 3px solid coral;
+  padding: 10px;
+}
+padding-top
+padding-right
+padding-bottom
+padding-left
+p.content-header {
+  border: 3px solid fuschia;
+  padding-bottom: 10px;
+}
+Padding II
+p.content-header {
+  border: 3px solid grey;
+  padding: 6px 11px 4px 9px;
+}
+Top right bottom left in order
+
+p.content-header {
+  padding: 5px 10px;
+}
+The first value, 5px, sets the padding value for the top and bottom sides of the content. The second value, 10px, sets the padding value for the left and right sides of the content.
+-Margins I
+
+margin-top
+margin-right
+margin-bottom
+margin-left
+p {
+  border: 3px solid DarkSlateGrey;
+  margin-right: 15px;
+}
+-Margins II
+p {
+  margin: 6px 10px 5px 12px;
+}
+Top right bottom left in order
+p {
+  margin: 6px 12px;
+}
+Top and bottom is 6px, right and left is 12px
+-Auto
+div {
+  margin: 0 auto;
+}
+In the example above, margin: 0 auto; will center the divs in their containing elements. The 0 sets the top and bottom margins to 0 pixels. The auto value instructs the browser to adjust the left and right margins until the element is centered within its containing element.
+but this doesn’t occur. Why?
+In order to center an element, a width must be set for that element. Otherwise, the width of the div will be automatically set to the full width of its containing element, like the <body>, for example. It’s not possible to center an element that takes up the full width of the page.
+div.headline {
+  width: 400px;
+  margin: 0 auto;
+}
+
+-Margin Collapse
+#img-one {
+  margin-right: 20px;
+}
+
+#img-two {
+  margin-left: 20px;
+}
+-Total gap 40px;
+
+#img-one {
+  margin-bottom: 30px;
+}
+
+#img-two {
+  margin-top: 20px;
+}
+-Total gap 50px
+-Minimum and Maximum Height and Width
+Because a web page can be viewed through displays of differing screen size, the content on the web page can suffer from those changes in size. To avoid this problem, CSS offers two properties that can limit how narrow or how wide an element’s box can be sized to.
+min-width — this property ensures a minimum width of an element’s box.
+max-width — this property ensures a maximum width of an element’s box.
+
+
+p {
+  min-width: 300px;
+  max-width: 600px;
+}
+p {
+  min-height: 150px;
+  max-height: 300px;
+}
+-Overflow
+The overflow property controls what happens to content that spills, or overflows, outside its box. It can be set to one of the following values:
+
+hidden - when set to this value, any content that overflows will be hidden from view.
+scroll - when set to this value, a scrollbar will be added to the element’s box so that the rest of the content can be viewed by scrolling.
+visible - when set to this value, the overflow content will be displayed outside of the containing element. Note, this is the default value
+p {
+  overflow: scroll; 
+}
+Look at the sample below,
+body {
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.navigation li {
+  font-weight: 100;
+  letter-spacing: 2px;
+  padding: 20px;
+}
+
+.navigation  li.logo {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+#banner {
+  background-image: url("https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-6/htmlcss1-img_tahoe.jpeg");
+  background-size: cover;
+  background-position: bottom center;
+  height: 700px;
+  width: 100%;
+}
+
+#banner .content h1 {
+  border: 3px solid white;
+  position: relative;
+  top: 50px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+#main {
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  width: 400px;
+  height: 1000px;
+  overflow: scroll;
+}
+
+h1 {
+  color: white;
+  font-size: 42px;
+  font-weight: 600;
+  text-align: center;
+}
+
+h2 {
+  border: 1px dotted red;
+  color: red;
+  font-size: 14px;
+  line-height: 48px;
+  padding: 20px 30px;
+  margin: 30px 20px;
+  text-align: center;
+}
+
+h3 {
+  color: red;
+  font-size: 26px;
+  font-weight: 700;
+  padding: 20px 10px;
+}
+
+p {
+  color: grey;
+  font-size: 16px;
+  line-height: 48px;
+  margin-top: 60px;
+  padding: 10px 20px;
+}
+
+.pull-quote {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.byline {
+  border-bottom: 1px solid LightGrey;
+  border-top: 1px solid LightGrey;
+  color: DarkGrey;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.share {
+  border: 1px solid LightGrey;
+  padding: 40px 0px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.share a {
+  background: red;
+  border: 1px solid red;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  margin: 10px;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.share a:hover {
+  background: white;
+  border: 1px solid red;
+  color: red;
+}
+
+--Resetting Defaults
+the term “user agent“ is a technical term for the browser.
+
+Many developers choose to reset these default values so that they can truly work with a clean slate.
+
+* {
+  margin: 0;
+  padding: 0;
+}
+Note that both properties are both set to 0. When these properties are set to 0, they do not require a unit of measurement.
+-Visibility
+Elements can be hidden from view with the visibilityproperty.
+The visibility property can be set to one of the following values:
+hidden — hides an element.
+visible — displays an element.
+<ul>
+  <li>Explore</li>
+  <li>Connect</li>
+  <li class="future">Donate</li>
+<ul>
+.future {
+  visibility: hidden;
+}
+Note: What’s the difference between display: noneand visibility: hidden? An element with display: none will be completely removed from the web page. An element with visibility: hidden, however, will not be visible on the web page, but the space reserved for it will.
+Eg
+.donate{
+  visibility: hidden;
+}
+-Review
+he box model comprises a set of properties used to create space around and between HTML elements.
+The height and width of a content area can be set in pixels or percentage.
+Borders surround the content area and padding of an element. The color, style, and thickness of a border can be set with CSS properties.
+Padding is the space between the content area and the border. It can be set in pixels or percent.
+Margin is the amount of spacing outside of an element’s border.
+Horizontal margins add, so the total space between the borders of adjacent elements is equal to the sum of the right margin of one element and the left margin of the adjacent element.
+Vertical margins collapse, so the space between vertically adjacent elements is equal to the larger margin.
+margin: 0 auto horizontally centers an element inside of its parent content area, if it has a width.
+The overflow property can be set to display, hide, or scroll, and dictates how HTML will render content that overflows its parent’s content area.
+The visibility property can hide or show elements.
+Instructions
+Make some adjustments to the code in the code editor. See if you can improve the appearance of the page by changing the following properties:
+width
+height
+padding
+border
+margin
+overflow
+-Box Model: Border-Box
+Fortunately, we can reset the entire box model and specify a new one: border-box.
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-Example
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Terminal - Your Source for Fact-Based News</title>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Raleway:100,200,600,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <nav class="navigation">
+    <ul>
+      <li>LOCAL</li>
+      <li>NATIONAL</li>
+      <li class="logo">THE TERMINAL</li>
+      <li>GLOBAL</li>
+      <li>OPED</li>
+      <li class="donate">DONATE</li>
+    </ul>
+  </nav>
+
+  <div id="banner">
+    <div class="content">
+      <h1>Conservation Efforts at Lake Tahoe Being Praised by Nation's Leaders</h1>
+    </div>
+  </div>
+
+  <div id="main" class="content">
+    <h3>THE STATE'S LATEST CONSERVATION EFFORTS ARE BEING HERALDED BY NATION'S TOP LEADERS AS GROUNDBREAKING AND FORWARD THINKING.</h3>
+    <span class="byline">WRITTEN BY: JAMES JAYCE</span>
+    <p>Until recently, construction on the banks of the Lake had been largely under the control of real estate developers. Construction activities have resulted in a clouding of the lake's blue waters. Currently, the Tahoe Regional Planning Agency is regulating construction along the shoreline and has won two Federal Supreme Court battles over recent decisions. These regulations are unpopular with many residents, especially those in the Tahoe Lakefront Homeowners Association.</p>
+
+    <p>The League to Save Lake Tahoe (Keep Tahoe Blue) has been an environmental watchdog in the Lake Tahoe Basin for 50 years. Founded when a proposal to build a four-lane highway around the lake (with a bridge over the entrance to Emerald Bay) was proposed in 1957, the League has thwarted poorly designed development projects and environmentally unsound planning. The League embraces responsible and diversified use of the Lake's resources while protecting and restoring its natural attributes.</p>
+
+    <div class="pull-quote">
+      <h2>"THE LEAGUE EMBRACES RESPONSIBLE AND DIVERSIFIED USE OF THE LAKE'S RESOURCES WHILE PROTECTING AND RESTORING ITS NATURAL ATTRIBUTES"</h2>
+    </div>
+
+    <p>Since 1980, the Lake Tahoe Interagency Monitoring Program (LTIMP) has been measuring stream discharge and concentrations of nutrients and sediment in up to 10 tributary streams in the Lake Tahoe Basin, California-Nevada. The objectives of the LTIMP are to acquire and disseminate the water quality information necessary to support science-based environmental planning and decision making in the basin. The LTIMP is a cooperative program with support from 12 federal and state agencies with interests in the Tahoe Basin. This data set, together with more recently acquired data on urban runoff water quality, is being used by the Lahontan Regional Water Quality Control Board to develop a program (mandated by the Clean Water Act) to limit the flux of nutrients and fine sediment to the Lake.</p>
+
+    <p>UC Davis remains a primary steward of the lake. The UC Davis Tahoe Environmental Research Center is dedicated to research, education and public outreach, and to providing objective scientific information for restoration and sustainable use of the Lake Tahoe Basin. Each year, it produces a well-publicized "State of the Lake" assessment report.</p>
+  </div>
+
+  <div class="share">
+    <a href="#">SHARE</a>
+    <a href="#">FAVORITE</a>
+    <a href="#">READ</a>
+  </div>
+
+</body>
+</html>
+
+-css
+body {
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.navigation li {
+  font-weight: 100;
+  letter-spacing: 2px;
+  padding: 20px;
+}
+
+.navigation  li.logo {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+#banner {
+  background-image: url("https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-6/htmlcss1-img_tahoe.jpeg");
+  background-size: cover;
+  background-position: bottom center;
+  height: 700px;
+  width: 100%;
+}
+
+#banner .content h1 {
+  border: 3px solid white;
+  position: relative;
+  top: 50px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+#main {
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  width: 400px;
+  height: 1000px;
+  overflow: scroll;
+}
+
+h1 {
+  color: white;
+  font-size: 42px;
+  font-weight: 600;
+  text-align: center;
+}
+
+h2 {
+  border: 1px dotted red;
+  color: red;
+  font-size: 14px;
+  line-height: 48px;
+  padding: 20px 30px;
+  margin: 30px 20px;
+  text-align: center;
+}
+
+h3 {
+  color: red;
+  font-size: 26px;
+  font-weight: 700;
+  padding: 20px 10px;
+}
+
+p {
+  color: grey;
+  font-size: 16px;
+  line-height: 48px;
+  margin-top: 60px;
+  padding: 10px 20px;
+}
+
+.pull-quote {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.byline {
+  border-bottom: 1px solid LightGrey;
+  border-top: 1px solid LightGrey;
+  color: DarkGrey;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.share {
+  border: 1px solid LightGrey;
+  padding: 40px 0px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.share a {
+  background: red;
+  border: 1px solid red;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  margin: 10px;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.share a:hover {
+  background: white;
+  border: 1px solid red;
+  color: red;
+}
+
+
+-eg
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+-CSS DISPLAY AND POSITIONING
+Flow of HTML
+five properties for adjusting the position of HTML elements in the browser:
+position
+display
+z-index
+float
+clear
+-postion
+block-level elements in the image above take up their own line of space and therefore don’t overlap each other.
+The position property can take one of four values:
+static - the default value (it does not need to be specified)
+relative
+absolute
+fixed
+
+
+-Position: Relative
+One way to modify the default position of an element is by setting its position property to relative.
+This value allows you to position an element relative to its default static position on the web page.
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: relative;
+}
+// it does not specify where the div should be positioned on the page.
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+he <div> has been positioned using two of the four offset properties. The valid offset properties are:
+top - moves the element down.
+bottom - moves the element up.
+left - moves the element right.
+right - moves the element left.
+In the example above, the <div> will be moved down 20 pixels and to the right 50 pixels from its default static position. 
+
+-Position: Absolute
+When an element’s position is set to absolute all other elements on the page will ignore the element and act like it is not present on the page. The element will be positioned relative to its closest positioned parent element.
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+-Position: Fixed
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: fixed;
+  top: 20px;
+  left: 50px;
+}
+In the example above, the .box-bottom <div> will remain fixed to its position no matter where the user scrolls on the page, like in the image below:
+
+ 
+-Z-Index
+The z-index property controls how far “back” or how far “forward” an element should appear on the web page when elements overlap.The z-index property accepts integer values. 
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+Eg
+.box-top {
+  background-color: Aquamarine;
+  position: relative;
+  z-index: 2;
+}
+ 
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  z-index: 1;
+}
+In the example above, we set the .box-top position to relative and the z-index to 2. We changed position to relative, because the z-index property does not work on static elements. The z-index of 2 moves the .box-top element forward, because it is greater than the .box-bottom z-index, 1. See the example image below
+
+In the image above, you can see the top box is moved in front of the bottom box.
+-Inline Display
+displayproperty: inline, block, and inline-block.
+The default display for some tags, such as <em>, <strong>, and <a>, is called inline. 
+-Block Display
+-Inline-Block Display
+Inline-block display combines features of both inline and block elements. Inline-block elements can appear next to each other and we can specify their dimensions using the width and height properties. Images are the best example of default inline-block elements.
+ 
+Eg
+<div class="rectangle">
+  <p>I’m a rectangle!</p>
+</div>
+<div class="rectangle">
+  <p>So am I!</p>
+</div>
+<div class="rectangle">
+  <p>Me three!</p>
+</div>
+.rectangle {
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+}
+In the example above, there are three rectangular divs that each contain a paragraph of text. The .rectangle<div>s will all appear inline (provided there is enough space from left to right) with a width of 200 pixels and height of 300 pixels, even though the text inside of them may not require 200 pixels by 300 pixels of space.
+-Float
+The float property can be set to one of two values:
+left - this value will move, or float, elements as far left as possible.
+right - this value will move elements as far right as possible.
+.boxes {
+  width: 120px;
+  height: 70px;
+}
+ 
+.box-bottom {
+  background-color: DeepSkyBlue;
+  float: right;
+}
+-Clear
+The clear property specifies how elements should behave when they bump into each other on the page. It can take on one of the following values:
+left — the left side of the element will not touch any other element within the same containing element.
+right — the right side of the element will not touch any other element within the same containing element.
+both — neither side of the element will touch any other element within the same containing element.
+none — the element can touch either side.
+div {
+  width: 200px;
+  float: left;
+}
+ 
+div.special {
+  clear: left;
+}
+ 
+-Review: Layout
+he position property allows you to specify the position of an element in three different ways.
+When set to relative, an element’s position is relative to its default position on the page.
+When set to absolute, an element’s position is relative to its closest positioned parent element. It can be pinned to any part of the web page, but the element will still move with the rest of the document when the page is scrolled.
+When set to fixed, an element’s position can be pinned to any part of the web page. The element will remain in view no matter what.
+The z-index of an element specifies how far back or how far forward an element appears on the page when it overlaps other elements.
+The display property allows you control how an element flows vertically and horizontally a document.
+inline elements take up as little space as possible, and they cannot have manually-adjusted width or height.
+block elements take up the width of their container and can have manually-adjusted heights.
+inline-block elements can have set width and height, but they can also appear next to each other and do not take up their entire container width.
+The float property can move elements as far left or as far right as possible on a web page.
+You can clear an element’s left or right side (or both) using the clear property.
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+-example
+-html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Please Participate in Our Survey!</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <header>
+    <ul>
+      <li>Question 1</li>
+      <li>Question 2</li>
+      <li>Question 3</li>
+      <li>Question 4</li>
+      <li>Question 5</li>
+    </ul>
+  </header>
+  
+  <div class="welcome">
+    <h1>Welcome to our survey!</h1>
+    <p>We're looking forward to getting your answers so we can make sure our products and services are the best they can be!</p>
+  </div>
+
+  <div class="question">
+    <h4>Question 1</h4>
+    <h2>I like participating in physical activity such as running, swimming, or biking.</h2>
+
+    <div class="answer">
+      <h3>Disagree</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Neutral</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Agree</h3>
+    </div>
+  </div>
+
+  <div class="question">
+    <h4>Question 2</h4>
+    <h2>I try to keep up to date with the latest fashion in active wear.</h2>
+
+    <div class="answer">
+      <h3>Disagree</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Neutral</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Agree</h3>
+    </div>
+  </div>
+
+  <div class="question">
+    <h4>Question 3</h4>
+    <h2>I purchase clothing online regularly.</h2>
+
+    <div class="answer">
+      <h3>Disagree</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Neutral</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Agree</h3>
+    </div>
+  </div>
+
+  <div class="question">
+    <h4>Question 4</h4>
+    <h2>I try to buy goods that are designed and/or manufactured in my home country.</h2>
+
+    <div class="answer">
+      <h3>Disagree</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Neutral</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Agree</h3>
+    </div>
+  </div>
+
+  <div class="question">
+    <h4>Question 5</h4>
+    <h2>I look to famous athletes when trying to choose what to wear when training.</h2>
+
+    <div class="answer">
+      <h3>Disagree</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Neutral</h3>
+    </div>
+
+    <div class="answer">
+      <h3>Agree</h3>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+-css
+body {
+  background-color: #FFF;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #466995;
+  border-bottom: 1px solid #466995;
+}
+
+ul {
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+li {
+  color: #FFF;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+li:hover {
+  color: #DBE9EE;
+}
+
+h1 {
+  color: #466995;
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #333;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 26px;
+  font-weight: 100;
+  margin: 0 auto 20px auto;
+}
+
+h3 {
+  color: #466995;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 30px;
+}
+
+h4 {
+  color: #466995;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase
+}
+
+p {
+  color: #333;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+}
+
+footer {
+  background-color: #DBE9EE;
+  text-align: center;
+}
+
+.welcome {
+  background-color: #DBE9EE;
+  box-sizing: border-box;
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.question {
+  text-align: center;
+}
+
+.answer {
+  border: 1px solid #466995;
+  margin: 20px;
+}
+
+.answer:hover {
+  background: #C0D6DF;
+  color: #FFF;
+}
+
+-eg
+.question{
+  position: static;
+}
+
+-
+Position: Relative
+One way to modify the default position of an element is by setting its position property to relative.
+This value allows you to position an element relative to its default static position on the web page
+.box-bottom {
+  background-color: DeepSkyBlue;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+
+
+
+Position: Absolute
+Another way of modifying the position of an element is by setting its position to absolute.
+When an element's position is set to absolute all other elements on the page will ignore the element and act like it is not present on the page. The element will be positioned relative to its closest positioned parent element.
+
+
+-Introduction to Color
+Colors in CSS can be described in three different ways:
+Named colors — English words that describe colors, also called keyword colors
+RGB — numeric values that describe a mix of red, green, and blue
+HSL — numeric values that describe a mix of hue, saturation, and lightness
+-Hexadecimal
+A hex color begins with a hash character (#) which is followed by three or six characters.
+DarkSeaGreen: #8FBC8F
+Sienna:       #A0522D
+SaddleBrown:  #8B4513
+Brown:        #A52A2A
+Black:        #000000 or #000
+White:        #FFFFFF or #FFF
+Aqua:         #00FFFF or #0FF
+
+You can include hex colors just as you would include named colors: background-color: #9932cc;.
+-RGB Colors
+from 0 to 255
+h1 {
+  color: rgb(23, 45, 23);
+}
+-Hex and RGB
+In both hex and decimal, we have three values, one for each color. Each can be one of 256 values. Specifically, 256 * 256 * 256 = 16,777,216. That is the amount of colors we can now represent. Compare that to the 147 named CSS colors!
+-Hue色调, Saturation饱和, and Lightness明度标尺
+There’s another equally powerful system in CSS called the hue-saturation-lightness color scheme, abbreviated as HSL.
+The syntax for HSL is similar to the decimal form of RGB, though it differs in important ways. The first number represents the degree of the hue, and can be between 0 and 360. The second and third numbers are percentages representing saturation and lightness respectively. Here is an example:
+color: hsl(120, 60%, 70%);
+
+body {
+  background-color: hsl(240, 100%, 80%);
+}
+.midground {
+  background-color: hsl(225, 100%, 25%);
+}
+
+.foreground {
+  background-color: hsl(325, 50%, 50%);
+}
+-Opacity and Alpha
+To use opacity in the HSL color scheme, use hslainstead of hsl, and four values instead of three. For example:
+color: hsla(34, 100%, 50%, 0.1);
+The first three values work the same as hsl. The fourth value (which we have not seen before) is the alpha. This last value is sometimes called the opacity.
+Alpha is a decimal number from zero to one. If alpha is zero, the color will be completely transparent. If alpha is one, the color will be opaque. The value for half transparent would be 0.5.
+The RGB color scheme has a similar syntax for opacity, rgba. Again, the first three values work the same as rgb and the last value is the alpha. Here’s an example:
+color: rgba(234, 45, 98, 0.33);
+Alpha can only be used with HSL and RGB colors; we cannot add the alpha value to color: green color: #FFFFF.
+There is, however, a named color keyword for zero opacity, transparent. It’s equivalent to rgba(0, 0, 0, 0). It’s used like any other color keyword:
+color: transparent;
+Eg
+body {
+  background-color: rgba(0,255,0,0.1);
+}
+
+.midground {
+  background-color: hsla(225, 100%, 25%, 0.4);
+}
+
+.foreground {
+  background-color: hsla(325, 50%, 50%,0.6);
+}
+Color Review
+We’ve completed our extensive tour of the colors in CSS! Let’s review the key information we’ve learned.
+There are four ways to represent color in CSS:
+Named colors — there are 147 named colors, which you can review here.
+Hexadecimal or hex colors
+Hexadecimal is a number system with has sixteen digits, 0 to 9 followed by “A” to “F”.
+Hex values always begin with # and specify values of red, blue and green using hexademical numbers such as #23F41A.
+RGB
+RGB colors use the rgb() syntax with one value for red, one value for blue and one value for green.
+RGB values range from 0 to 255 and look like this: rgb(7, 210, 50).
+HSL
+HSL stands for hue (the color itself), saturation (the intensity of the color), and lightness (how light or dark a color is).
+Hue ranges from 0 to 360 and saturation and lightness are both represented as percentages like this: hsl(200, 20%, 50%).
+You can add opacity to color in RGB and HSL by adding a fourth value, a, which is represented as a percentage.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Example
+-html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Best Coffee - By Region</title>
+  <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Raleway:100,500,600,800" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    <h1>The Best Coffee Regions</h1>
+  </div>
+
+  <div class="roasting">
+    <h3>A Note on Roasting</h3>
+    <p>Roasting coffee transforms the chemical and physical properties of raw coffee beans into roasted coffee products. This process is what produces the characteristic flavor of coffee by causing the green coffee beans to change in taste. Many coffee roasters determine the level of roast by eye, assessing the color of the beans to determine the desired roast-level.</p>
+  <br>
+      <div class="spectrum">
+        <div class="green">
+          <h4>Green Beans</h4>
+          <h5>22&degC (72&degF)</h5>
+          <p>Green coffee as it arrives at the dock. They can be stored for approximately 12-18 months in a climate controlled environment before quality loss is noticeable.</p>
+        </div>
+        <div class="light">
+          <h4>Light Roast</h4>
+          <h5>205&degC (401&degF)</h5>
+          <p>Moderate light brown, but still mottled in appearance. A preferred roast for some specialty roasters, highlights origin characteristics as well as complex acidity.</p>
+        </div>
+        <div class="city">
+          <h4>City Roast</h4>
+          <h5>219&degC (426&degF)</h5>
+          <p>Medium brown, common for most specialty coffee. Good for tasting origin character, although roast character is noticeable.</p>
+        </div>
+        <div class="vienna">
+          <h4>Vienna Roast</h4>
+          <h5>230&degC (446&degF)</h5>
+          <p>Moderate dark brown with light surface oil, more bittersweet, caramel flavor, acidity muted. In the middle of second crack. Any origin characteristics have become eclipsed by roast at this level.</p>
+        </div>
+        <div class="italian">
+          <h4>Italian Roast</h4>
+          <h5>245&degC (473&degF)</h5>
+          <p>Nearly black and shiny, burnt tones become more distinct, acidity nearly eliminated, thin body.</p>
+        </div>
+      </div>
+  </div>
+
+  <ul>
+    <li>
+      <h2>Brazil</h2>
+      <p>Arabica dominates both Brazil and the world as a whole with about 85% of the production; robusta accounts for the remaining 30%. In Brazil, arabica production is located in the main coffee-growing cluster of states led by Rio where arabica is
+        produced almost exclusively. Robusta is primarily grown in the northwestern much smaller state of Espirito Santo where about 80% of the coffee is robusta.</p>
+      <a href="#">Learn More about Brazil</a>
+    </li>
+    <li>
+      <h2>Colombia</h2>
+      <p>Colombia has a reputation as producing mild, well balanced coffee beans.Colombia's average annual coffee production of 11.5 million bags is the third total highest in the world, after Brazil and Vietnam; though highest in terms of the arabica
+        bean. The beans are exported to United States, Germany, France, Japan, and Italy. Most coffee is grown in the Colombian coffee growing axis region.</p>
+      <a href="#">Learn More about Colombia</a>
+    </li>
+    <li>
+      <h2>India</h2>
+      <p>Indian coffee, grown mostly in southern India under monsoon rainfall conditions, is also termed as Indian monsooned coffee". Its flavor is defined as: "At its best similar to the flavor characteristics of Pacific coffees, but at its worst bland and uninspiring. The two well known species of coffee grown are the Arabica and Robusta. Probably the most commonly planted Arabica in India and Southeast Asia is S.795.</p>
+      <a href="#">Learn More about India</a>
+    </li>
+    <li>
+      <h2>Ethiopia</h2>
+      <p>Ethiopian beans can be divided into 3 categories: Longberry, Shortberry, and Mocha. Longberry varieties consist of the largest beans and are often considered of the highest quality in both value and flavor. Shortberry varieties are smaller. The Mocha variety is a highly prized commodity. Mocha Harars are known for their peaberry beans that often have complex chocolate, spice and citrus notes.</p>
+      <a href="#">Learn More about Ethiopia</a>
+    </li>
+    <li>
+      <h2>Costa Rica</h2>
+      <p>Costa Rican coffee beans are considered among the best in the world. Tarrazu is thought to produce the most desirable coffee beans in Costa Rica. In 2012, Tarrazu Geisha coffee became the most expensive coffee sold by Starbucks in 48 of their stores in the United States, using the Clover automated French press. The finest coffee is typically grown at altitudes of 1200 to 1700 meters.</p>
+      <a href="#">Learn More about Costa Rica</a>
+    </li>
+    <li>
+      <h2>Kenya</h2>
+      <p>The acidic soil in highlands of central Kenya, just the right amount of sunlight and rainfall provide excellent conditions for growing coffee plants. Coffee from Kenya is of the 'Colombia mild' type, and is well known for its intense flavor, full body, and pleasant aroma with notes of cocoa and high grade coffee from Kenya is one of the most sought-after coffees in the world.</p>
+      <a href="#">Learn More about Kenya</a>
+    </li>
+  </ul>
+
+</body>
+</html>
+
+
+-css
+body {
+  padding: 0;
+  margin: 0;
+  background: #F7F7F7;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #F7F7F7 0%, #EAE0D5 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #F7F7F7 0%, #EAE0D5 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #F7F7F7 0%, #EAE0D5 100%);
+}
+
+/** Header styles **/
+.header {
+  background-image: url(https://images.unsplash.com/photo-1455267847942-f4fdb784f0c5?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb);
+  height: 400px;
+  background-position: center center;
+}
+
+.roasting {
+  margin: 40px auto;
+  padding: 20px 30px 40px 30px;
+  background-color: #FFFFFFFFF;
+  overflow: auto;
+  width: 75%;
+  border-radius: 4px;
+  align-self: center;
+}
+
+.roasting p {
+  color: #938E89;
+  text-align: center;
+  line-height: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.spectrum div {
+  font: inherit;
+  padding: 0 20px;
+  color: #FFFFFF;
+  overflow: auto;
+  opacity: 0.9;
+}
+
+.spectrum p {
+  color: #FFFFFF;
+  text-align: left;
+}
+
+/* Roast types */
+.green {
+  background-color: DarkSeaGreen;
+}
+
+.light {
+  background-color: Sienna;
+}
+
+.city {
+  background-color: SaddleBrown;
+}
+
+.vienna {
+  background-color: Brown;
+}
+
+.italian {
+  background-color: Black;
+}
+
+/* Typography */
+h1 {
+  color: #41292C;
+  font-family: 'Covered By Your Grace', sans-serif;
+  font-size: 100px;
+  line-height: 76px;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  top: 20%;
+}
+
+h2 {
+  color: #E4BB97;
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: #41292C;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+}
+
+h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: .2em;
+}
+
+h5 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: .2em;
+  font-weight: 300;
+}
+
+/* Page elements */
+ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 75%;
+}
+
+li {
+  border-bottom: 1px solid #E4BB97;
+  list-style: none;
+  margin: 100px 0px;
+  padding-bottom: 60px;
+}
+
+p {
+  color: #444444;
+  line-height: 32px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+a {
+  color: #214E34;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: left;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+-Color can affect the following design aspects:
+
+The foreground color
+The background color
+
+-Typography
+-Font Family
+h1 {
+  font-family: Garamond;
+}
+Or more than one word
+h1 {
+  font-family: "Courier New";
+}
+-Font Weight
+p {
+  font-weight: bold;
+}
+p {
+  font-weight: normal;
+}
+-Font Weight II
+The font-weight property can also be assigned a number value to style text on a numeric scale ranging from 100 to 900. Valid values are multiples of 100 within this range such as 200 or 500.
+When using numeric weights, there are a number of default font weights that we can use:
+400 is the default font-weight of most text.
+700 signifies a bold font-weight.
+300 signifies a light font-weight.
+
+
+header {
+  font-weight: 800;
+}
+
+footer {
+  font-weight: 200
+-Font Style
+h3 {
+  font-style: italic;
+}
+The font-style property also has a normal value which is the default.
+-Word Spacing
+h1 {
+  word-spacing: 0.3em;
+}
+The default amount of space between words is usually 0.25em
+-Letter Spacing
+h1 {
+  letter-spacing: 0.3em;
+}
+Like word spacing, it’s not common to increase the kerning in text, but sometimes it enhances the readability of uppercase text
+-Text Transformation
+h1 {
+  text-transform: uppercase;
+}
+-Text Alignment
+left - aligns text to the left hand side of the browser.
+center - centers text.
+right - aligns text to the right hand side of the browser.
+-Line Height Anatomy
+Another property that we can set for text is line-height. This property modifies the leading of text
+
+
+-Line Height
+Line heights can take one of several values:
+A unitless number, such as 1.2. This number is an absolute value that will compute the line height as a ratio of the font size.
+A number specified by unit, such as 12px. This number can be any valid CSS unit, such as pixels, percents, ems, or rems.
+p {
+  line-height: 1.4;
+}
+-Serif and Sans Serif
+Serif — fonts that have extra details on the ends of each letter. Examples include fonts like Times New Roman or Georgia, among others.
+Sans-Serif — fonts that do not have extra details on the ends of each letter. Instead, letters have straight, flat edges, like Arial or Helvetica.
+-Fallback Fonts
+To use fallback fonts, the following syntax is required:
+h1 {
+  font-family: "Garamond", "Times", serif;
+}
+The fonts specified after Garamond are the fallback fonts (Times, serif). Fallback fonts help ensure a consistent experience for the diverse audience of users that visit a site.
+Eg
+.garamond .sample .text {
+  font-family: Garamond, serif;
+}
+
+/* Add styles for the Helvetica font here */
+
+.helvetica .sample .text {
+  font-family: Helvetica, sans-serif;
+}
+-Linking Fonts I
+-Linking Fonts II
+1. A single linked font, using Droid Serif as an example:
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" type="text/css" rel="stylesheet">
+</head>
+
+2. Multiple linked fonts, using the Droid Serif and Playfair Display fonts as an example:
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Playfair+Display" type="text/css" rel="stylesheet">
+</head>
+
+3. Multiple linked fonts, along with weights and styles. Here Droid Serif has font weights of 400, 700, and 700i, while Playfair Display has font weights of 400, 700, and 900i:
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,700i|Playfair+Display:400,700,900i" rel="stylesheet">
+</head>
+Eg.
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+-Font-Face I
+There are other ways to link non-user fonts that don’t require the use of the <link> tag in the HTML document. CSS offers a way to import fonts directly into stylesheets with the @font-face property.
+To load fonts with the @font-face property:
+Instead of using the font’s link in the HTML document, enter the link into the URL bar in the browser.
+The browser will load the CSS rules. You will need to focus on the rules that are directly labeled as /* latin */. Some of the latin rules are on separate lines. You will need each of these.
+Copy each of the CSS rules labeled latin, and paste the rules from the browser to the top of style.css.
+ 
+It is important to stress the need to copy the @font-face rules to the top of the stylesheet for the font to load correctly in the project.
+-Font-Face II
+/* Universal Styles */
+ 
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Space Mono'), local('SpaceMono-Regular'), url(https://fonts.gstatic.com/s/spacemono/v1/adVweg3BJhE6r8jYmXseHQzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+ 
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Space Mono Bold'), local('SpaceMono-Bold'), url(https://fonts.gstatic.com/s/spacemono/v1/vdpMRWfyjfCvDYTz00NEPGaVI6zN22yiurzcBKxPjFE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+-Font-Face III
+@font-face {
+  font-family: "Roboto";
+  src: url(fonts/Roboto.woff2) format('woff2'),
+       url(fonts/Roboto.woff) format('woff'),
+       url(fonts/Roboto.tff) format('truetype');
+}
+ 
+Here, you’ll notice:
+The main difference is the use of a relative filepath instead of a web URL.
+We add a format for each file to specify which font to use. Different browsers support different font types, so providing multiple font file options will support more browsers.
+As of now .woff2 appears to be the way of the future, due to greatly reduced file sizes and improved performance, but many browsers still don’t support it. There are lots of great sources to find fonts to use locally, such as Font Squirrel.
+Question
+In the fonts/ directory, you’ll notice that we have added several local font files.
+Let’s change the typography of the banner, using local font files. If you open up the fonts/directory using the file navigator in the code editor, you’ll notice that we have added local font files Glegoo-Regular.ttf and Glegoo-Bold.ttf.
+At the top of style.css, create a selector using the @font-face property and give it the font family Glegoo.
+2.
+Within the @font-face rule, add a srcattribute with the relative path of the file Glegoo-Regular.ttf and a format of truetype. Make sure to include this path in the url() parentheses.
+Stuck? Get a hint
+3.
+Using the selector that targets the paragraph nested within the banner class, add the font family Glegoo and a font size of 20px.
+Reload the page to see the changes in the browser.
+Answer
+Ccs
+/* Universal Styles */
+ 
+@font-face {
+  font-family: "Glegoo";
+  src: url(../fonts/Glegoo-Regular.ttf) format('truetype');
+}
+ 
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Space Mono'), local('SpaceMono-Regular'), url(https://fonts.gstatic.com/s/spacemono/v1/adVweg3BJhE6r8jYmXseHQzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+ 
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Space Mono Bold'), local('SpaceMono-Bold'), url(https://fonts.gstatic.com/s/spacemono/v1/vdpMRWfyjfCvDYTz00NEPGaVI6zN22yiurzcBKxPjFE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+ 
+html {
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+}
+ 
+body {
+  background-color: #F2F2F2;
+}
+ 
+h1 {
+  color: white;
+  font-size: 28px;
+  font-family: Georgia;
+  text-transform: uppercase;
+}
+ 
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 2.5;
+  font-family: Georgia;
+  word-spacing: 0.05em;
+  letter-spacing: 0.02em;
+}
+ 
+a {
+  text-decoration: none;
+}
+ 
+p {
+  margin: 16px 0;
+  font-family: Helvetica;
+}
+ 
+strong {
+  font-weight: bold;
+}
+ 
+#serif, /* Offset linked sections to account for header. */
+#sans,
+#mono {
+  padding-top: 77px;
+  margin-top: -77px;
+}
+ 
+/* Header */
+ 
+.header {
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-weight: 900;
+}
+ 
+.header li {
+  display: inline-block;
+}
+ 
+.header a {
+  display: block;
+  color: #4A4A4A;
+  padding: 30px 20px;
+}
+ 
+a.home {
+  color: #4D00FF;
+}
+ 
+ 
+/* Banner Section */
+ 
+.banner {
+  background-color: #4D00FF;
+  padding: 100px 0;
+  margin-top: 77px;
+  text-align: center;
+}
+ 
+.banner p {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 1.4;
+  font-family: "Glegoo";
+  font-size: 20px;
+}
+ 
+/* Editorial Sections */
+ 
+.editorial {
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  color: #4C4C4C;
+}
+ 
+/* Font Card Sections */
+ 
+.font-card {
+  background-color: #ffffff;
+  margin: 50px 0;
+  padding: 20px 50px;
+}
+ 
+.font-card .creator {
+  font-size: 20px;
+  line-height: 1.25;
+  font-style: italic;
+}
+ 
+.sample {
+  display: inline-block;
+  padding: 0 20px;
+  margin: 20px;
+}
+ 
+.sample h2 {
+  line-height: 1.5;
+}
+ 
+.sample .text {
+  color: #4D00FF;
+  font-size: 100px;
+}
+ 
+/* Add styles for the Garamond font here */
+ 
+.garamond .sample .text {
+  font-family: Garamond, serif;
+}
+ 
+/* Add styles for the Helvetica font here */
+ 
+.helvetica .sample .text {
+  font-family: Helvetica, sans-serif;
+}
+ 
+/* Add styles for the Space Mono font here */
+ 
+.space .sample .text {
+  font-family: "Space Mono", monospace;
+}
+ 
+.bold {
+  font-weight: 900;
+}
+ 
+.regular {
+  font-weight: normal;
+}
+ 
+.italic {
+  font-weight: normal;
+  font-style: italic;
+}
+ 
+/* Media Queries */
+ 
+@media only screen and (max-width: 535px) {
+  .header {
+    font-size: 14px;
+  }
+ 
+  .header a {
+    padding: 30px 20px;
+  }
+ 
+  a.home {
+    display: none;
+  }
+}
+ 
+ 
+Html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typography Blog</title>
+  <link rel="stylesheet" type="text/css" href="styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+ 
+  <!-- Header -->
+  <nav class="header">
+    <ul>
+      <li><a class="home" href="#top">FAVORITE FONTS</a></li>
+      <li><a class="pagelink" href="#serif">SERIF</a></li>
+      <li><a class="pagelink" href="#sans">SANS-SERIF</a></li>
+      <li><a class="pagelink" href="#mono">MONOSPACED</a></li>
+    </ul>
+  </nav>
+ 
+  <!-- Banner Section -->
+  <div class="banner">
+    <h1>Typography</h1>
+      <p>While typography has been practiced for many centuries, digital font design is a relatively new discipline. There are some great examples of old-school fonts (also called typefaces) which have been adapted for use on digital displays. However, I would like to highlight a few of my favorite fonts that were created with screens in mind.</p>
+  </div>
+ 
+  <!-- Serif Section -->
+  <div id="serif">
+ 
+    <!-- Editorial Section - Serif -->
+    <div class="editorial">
+      <h2>Serif</h2>
+      <p>Serifs are the small features at the end of strokes within letters. These features are <strong>functional as well as decorative</strong>. Serif fonts are widely used for body text (eg. articles) because they are considered easier to read than sans-serif fonts in print.</p>
+      <p><em>Serif fonts can often create a feeling of traditionalism and antiquity, due to their common use in printed materials for many years.</em></p>
+    </div>
+ 
+    <!-- Font Card - Serif -->
+    <div class="font-card garamond">
+      <h2>Garamond</h2>
+      <p class="creator">by Claude Garamond (16th Century)</p>
+      <div class="garamond">
+        <span class="sample">
+          <h2>Bold</h2>
+          <span class="bold text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Regular</h2>
+          <span class="regular text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Italic</h2>
+          <span class="italic text">Abc</span>
+        </span>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Sans-Serif Section -->
+  <div id="sans">
+ 
+    <!-- Editorial Section - Sans-Serif -->
+    <div class="editorial">
+      <h2>Sans-Serif</h2>
+      <p>Sans-Serif ("without serif") describes fonts with characters which lack flourishes at the ends of the strokes. Sans-serif fonts have become the most prevalent for display of text on computer screens, as on lower-resolution digital displays, fine details like serifs may disappear or appear too large.</p>
+      <p><em>Sans-serif fonts are often used to project an image of simplicity, modernity or minimalism.</em></p>
+    </div>
+ 
+    <!-- Font Card - Sans-Serif -->
+    <div class="font-card">
+      <h2>Helvetica</h2>
+      <p class="creator">by Max Miedinger & Eduard Hoffman (1957)</p>
+      <div class="helvetica">
+        <span class="sample">
+          <h2>Bold</h2>
+          <span class="bold text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Regular</h2>
+          <span class="regular text">Abc</span>
+        </span>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Monospaced Section -->
+  <div id="mono">
+ 
+    <!-- Editorial - Monospaced -->
+    <div class="editorial">
+      <h2>Monospaced</h2>
+      <p>A monospaced font's characters each occupy the same amount of horizontal space. This contrasts with most fonts, where the letters and spacings have different widths. For example, the two high-use letters "I" and "E" do not need the same footprint. The first monospaced Western typefaces were designed for typewriters.</p>
+      <p><em>Many text editors (like those used to write computer code) use monospaced fonts, which aid in distinguishing between potentially similar characters (like "l" and "1") and in counting the number of characters in a line.</em></p>
+    </div>
+ 
+    <!-- Font Card - Monospaced -->
+    <div class="font-card">
+      <h2>Space Mono</h2>
+      <p class="creator">by Colophon Foundry (2016)</p>
+      <div class="space">
+        <span class="sample">
+          <h2>Bold</h2>
+          <span class="bold text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Regular</h2>
+          <span class="regular text">Abc</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+ 
+-Review
+Great job! You learned how to style an important aspect of the user experience, typography.
+Let’s review what you’ve learned so far:
+Typography is the art of arranging text on a page.
+Text can appear in any number of weights, with the font-weight property.
+Text can appear in italics with the font-style property.
+The vertical spacing between lines of text can be modified with the line-height property.
+Serif fonts have extra details on the ends of each letter. Sans-Serif fonts do not.
+Fallback fonts are used when a certain font is not installed on a user’s computer.
+Google Fonts provides free fonts that can be used in an HTML file with the <link> tag or the @font-face property.
+Local fonts can be added to a document with the @font-face property and the path to the font’s source.
+The word-spacing property changes how far apart individual words are.
+The letter-spacing property changes how far apart individual letters are.
+The text-align property changes the horizontal alignment of text.
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-example
+-html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typography Blog</title>
+  <link rel="stylesheet" type="text/css" href="styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="header">
+    <ul>
+      <li><a class="home" href="#top">FAVORITE FONTS</a></li>
+      <li><a class="pagelink" href="#serif">SERIF</a></li>
+      <li><a class="pagelink" href="#sans">SANS-SERIF</a></li>
+      <li><a class="pagelink" href="#mono">MONOSPACED</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner Section -->
+  <div class="banner">
+    <h1>Typography</h1>
+      <p>While typography has been practiced for many centuries, digital font design is a relatively new discipline. There are some great examples of old-school fonts (also called typefaces) which have been adapted for use on digital displays. However, I would like to highlight a few of my favorite fonts that were created with screens in mind.</p>
+  </div>
+
+  <!-- Serif Section -->
+  <div id="serif">
+
+    <!-- Editorial Section - Serif -->
+    <div class="editorial">
+      <h2>Serif</h2>
+      <p>Serifs are the small features at the end of strokes within letters. These features are <strong>functional as well as decorative</strong>. Serif fonts are widely used for body text (eg. articles) because they are considered easier to read than sans-serif fonts in print.</p>
+      <p><em>Serif fonts can often create a feeling of traditionalism and antiquity, due to their common use in printed materials for many years.</em></p>
+    </div>
+
+    <!-- Font Card - Serif -->
+    <div class="font-card garamond">
+      <h2>Garamond</h2>
+      <p class="creator">by Claude Garamond (16th Century)</p>
+      <div class="garamond">
+        <span class="sample">
+          <h2>Bold</h2>
+          <span class="bold text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Regular</h2>
+          <span class="regular text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Italic</h2>
+          <span class="italic text">Abc</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sans-Serif Section -->
+  <div id="sans">
+
+    <!-- Editorial Section - Sans-Serif -->
+    <div class="editorial">
+      <h2>Sans-Serif</h2>
+      <p>Sans-Serif ("without serif") describes fonts with characters which lack flourishes at the ends of the strokes. Sans-serif fonts have become the most prevalent for display of text on computer screens, as on lower-resolution digital displays, fine details like serifs may disappear or appear too large.</p>
+      <p><em>Sans-serif fonts are often used to project an image of simplicity, modernity or minimalism.</em></p>
+    </div>
+
+    <!-- Font Card - Sans-Serif -->
+    <div class="font-card">
+      <h2>Helvetica</h2>
+      <p class="creator">by Max Miedinger & Eduard Hoffman (1957)</p>
+      <div class="helvetica">
+        <span class="sample">
+          <h2>Bold</h2>
+          <span class="bold text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Regular</h2>
+          <span class="regular text">Abc</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monospaced Section -->
+  <div id="mono">
+
+    <!-- Editorial - Monospaced -->
+    <div class="editorial">
+      <h2>Monospaced</h2>
+      <p>A monospaced font's characters each occupy the same amount of horizontal space. This contrasts with most fonts, where the letters and spacings have different widths. For example, the two high-use letters "I" and "E" do not need the same footprint. The first monospaced Western typefaces were designed for typewriters.</p>
+      <p><em>Many text editors (like those used to write computer code) use monospaced fonts, which aid in distinguishing between potentially similar characters (like "l" and "1") and in counting the number of characters in a line.</em></p>
+    </div>
+
+    <!-- Font Card - Monospaced -->
+    <div class="font-card">
+      <h2>Space Mono</h2>
+      <p class="creator">by Colophon Foundry (2016)</p>
+      <div class="space">
+        <span class="sample">
+          <h2>Bold</h2>
+          <span class="bold text">Abc</span>
+        </span>
+        <span class="sample">
+          <h2>Regular</h2>
+          <span class="regular text">Abc</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+-css
+/* Universal Styles */
+
+html {
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #F2F2F2;
+}
+
+h1 {
+  color: white;
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 2.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 16px 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+#serif, /* Offset linked sections to account for header. */
+#sans,
+#mono {
+  padding-top: 77px;
+  margin-top: -77px;
+}
+
+/* Header */
+
+.header {
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.header li {
+  display: inline-block;
+}
+
+.header a {
+  display: block;
+  color: #4A4A4A;
+  padding: 30px 20px;
+}
+
+a.home {
+  color: #4D00FF;
+}
+
+
+/* Banner Section */
+
+.banner {
+  background-color: #4D00FF;
+  padding: 100px 0;
+  margin-top: 77px;
+  text-align: center;
+}
+
+.banner p {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 10px;
+  color: #ffffff;
+}
+
+/* Editorial Sections */
+
+.editorial {
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  color: #4C4C4C;
+}
+
+/* Font Card Sections */
+
+.font-card {
+  background-color: #ffffff;
+  margin: 50px 0;
+  padding: 20px 50px;
+}
+
+.font-card .creator {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.sample {
+  display: inline-block;
+  padding: 0 20px;
+  margin: 20px;
+}
+
+.sample h2 {
+  line-height: 1.5;
+}
+
+.sample .text {
+  color: #4D00FF;
+  font-size: 100px;
+}
+
+/* Add styles for the Garamond font here */
+
+/* Add styles for the Helvetica font here */
+
+/* Add styles for the Space Mono font here */
+
+.bold {
+  font-weight: 900;
+}
+
+.regular {
+  font-weight: normal;
+}
+
+.italic {
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 535px) {
+  .header {
+    font-size: 14px;
+  }
+
+  .header a {
+    padding: 30px 20px;
+  }
+
+  a.home {
+    display: none;
+  }
+}
+
+-Introduction to Grids
+-In this lesson, we introduce a new, powerful tool called CSS Grid. The grid can be used to lay out entire web pages. Whereas Flexbox is mostly useful for positioning items in a one-dimensional layout, CSS grid is most useful for two-dimensional layouts, providing many tools for aligning and moving elements across both rows and columns.
+grid-template-columns
+grid-template-rows
+grid-template
+grid-template-area
+grid-gap
+grid-row-start / grid-row-end
+grid-column-start / grid-column-end
+grid-area
+-Creating a Grid
+.grid {
+  border: 2px blue solid;
+  width: 400px;
+  height: 500px;
+  display: grid;
+}
+
+.box {
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+}
+-Creating Columns
+By default, grids contain only one column. We can define the columns of our grid by using the CSS property grid-template-columns
+.grid{
+  display: grid;
+  width: 500px;
+  grid-template-columns: 100px 200px;
+}
+This property creates two changes. First, it defines the number of columns in the grid; in this case, there are two. Second, it sets the width of each column. The first column will be 100 pixels wide and the second column will be 200 pixels wide
+We can also define the size of our columns as a percentage of the entire grid’s width.
+.grid{
+  display: grid;
+  width: 500px;
+  grid-template-columns: 20% 50%;
+}
+We could also mix
+.grid {
+  display: grid;
+  width: 100px;
+  grid-template-columns: 20px 40% 60px;
+}
+-Creating Rows
+.grid {
+  display: grid;
+  width: 1000px;
+  height: 500px;
+  grid-template-columns: 100px 200px;
+  grid-template-rows: 10% 20% 600px;
+}
+This grid has two columns and three rows. grid-template-rows defines the number of rows and sets each row’s height. In this example, the first row is 50 pixels tall (10% of 500), the second row is 100 pixels tall (20% of 500), and the third row is 600 pixels tall.
+When using percentages in these two properties, remember that rows are defined as a percentage of the grid’s height, and columns are defined as a percentage of its width.
+-Grid Template
+The property grid-template can replace the previous two CSS properties. Both grid-template-rows and grid-template-columns are nowhere to be found in the following code!
+.grid {
+  display: grid;
+  width: 1000px;
+  height: 500px;
+  grid-template: 200px 300px / 20% 10% 70%;
+}
+When using grid-template, the values before the slash will determine the size of each row. The values after the slash determine the size of each column. In this example, we’ve made two rows and three columns of varying sizes.
+The same rules from before apply; when using percentages to set rows, each row will be a percentage of the grid’s total height. Columns are still a percentage of the total width.
+-Fraction
+You may already be familiar with several types of responsive units such as percentages (%), ems and rems. CSS Grid introduced a new relative sizing unit — fr, like fraction.
+By using the fr unit, we can define the size of columns and rows as a fraction of the grid’s length and width. This unit was specifically created for use in CSS Grid. Using fr makes it easier to prevent grid items from overflowing the boundaries of the grid. Consider the code below:
+css .grid { display: grid; width: 1000px; height: 400px; grid-template: 2fr 1fr 1fr / 1fr 3fr 1fr; }
+Look like the fraction and divide how many parts
+Another sample
+css .grid { display: grid; width: 100px; grid-template-columns: 1fr 60px 1fr; }
+
+Means in second column take 60px, other 2*fr1 means 20px each
+
+-Repeat
+repeat() is one of these functions. The repeat()function was created specifically for CSS Grid.
+.grid {
+  display: grid;
+  width: 300px;
+  grid-template-columns: repeat(3, 100px);
+}
+using the repeat function will make the grid have three columns that are each 100 pixels wide. It is the same as writing:
+```css
+grid-template-columns: 100px 100px 100px;
+
+Repeat is particularly useful with fr. For example, repeat(5, 1fr) would split your table into five equal rows or columns.
+Finally, the second parameter of repeat() can have multiple values.
+grid-template-columns: repeat(2, 20px 50px)
+This code will create four columns where the first and third columns will be 20 pixels wide and the second and fourth will be 50 pixels wide.
+Sample:
+
+-minmax
+The grid in our example has been 400 pixels wide and 500 pixels tall
+For example, if you have a 100-pixel wide image in your grid, you probably don’t want its column to get thinner than 100 pixels! The minmax() function can help us solve this problem.
+.grid {
+  display: grid;
+  grid-template-columns: 100px minmax(100px, 500px) 100px;
+}```
+
+In this example, the first and third columns will always be 100 pixels wide, no matter the size of the grid. The second column, however, will vary in size as the overall grid resizes. The second column will always be between 100 and 500 pixels wide.
+Eg
+grid {
+  display: grid;
+  border: 2px blue solid;
+  height: 500px;
+  grid-template: repeat(3, 1fr) / 3fr minmax(50px, 300px) 1fr;
+}
+
+.box {
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+}
+-Grid Gap
+ The CSS properties grid-row-gap and grid-column-gap will put blank space between every row and column in the grid.
+css .grid { display: grid; width: 320px; grid-template-columns: repeat(3, 1fr); grid-column-gap: 10px; }
+It is important to note that grid-gap does not add space at the beginning or end of the grid. In the example code, our grid will have three columns with two ten-pixel gaps between them.
+there is a CSS property grid-gap that can set the row and column gap at the same time. grid-gap: 20px 10px; will set the distance between rows to 20 pixels and the distance between columns to 10 pixels. 
+-Grid Items
+-Multiple Row Items
+we are no longer applying CSS to the outer grid container; we’re adding CSS to the elements sitting inside the grid
+.item {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+In this example, the HTML element of class item will take up two rows in the grid, rows 1 and 2. The values that grid-row-start and grid-row-end accept are grid lines.
+Row grid lines and column grid lines start at 1 and end at a value that is 1 greater than the number of rows or columns the grid has. For example, if a grid has 5 rows, the grid row lines range from 1 to 6. If a grid has 8 columns, the grid row lines range from 1 to 9.
+-Grid Row
+We can use the property grid-row as shorthand for grid-row-start and grid-row-end. The following two code blocks will produce the same output:
+
+.item {
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+.item {
+  grid-row: 4 / 6;
+}
+For example, if an item spans two rows of height 100 pixels and there is a ten-pixel grid-gap, then the item will have a total height of 210 pixels.
+-Grid Column
+The previous three properties also exist for columns. grid-column-start, grid-column-end and grid-column work identically to the row properties. These properties allow a grid item to span multiple columns.
+When using these properties, we can use the keyword span to start or end a column or row relative to its other end. Look at how span is used in the code below:
+
+.item {
+  grid-column: 4 / span 2;
+}
+This is telling the item element to begin in column four and take up two columns of space. So itemwould occupy columns four and five. It produces the same result as the following code blocks:
+1.    .item {
+  grid-column: 4 / 6;
+}
+2.      .item {
+  grid-column-start: 4;
+  grid-column-end: span 2;
+}
+3.        .item {
+  grid-column-start: span 2;
+  grid-column-end: 6;
+}
+span is a useful keyword, because it avoids off-by-one errors (miscalculating the ending grid line) you might make when determining the ending grid line of an element.
+Eg
+Html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style.css'></head>
+  
+<body>
+  <div class="grid">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+  </div>
+</body>
+
+</html>
+
+Css
+.grid {
+  display: grid;
+  border : 2px blue solid;
+  height: 500px;
+  width:500px;
+  grid-template: repeat(4, 1fr 2fr) / repeat(4, 3fr 2fr);
+  grid-gap: 5px;
+}
+
+.a {
+  grid-row: 5 / 7;
+  grid-column: 1 / span 2;
+}
+
+.b {
+  grid-column: 2 / span 6;
+  grid-row: 2 / span 3;
+}
+.box {
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+}
+
+-Grid Area
+.item {
+  grid-area: 2 / 3 / 4 / span 5;
+}
+grid-area takes four values separated by slashes. The order is important! This is how grid-area will interpret those values.
+grid-row-start
+grid-column-start
+grid-row-end
+grid-column-end
+
+In the above example, the item will occupy rows two and three and columns three through eight.
+Using grid-area is an easy way to place items exactly where you want them in a grid.
+.a {
+  grid-area: 5 / 1 / span 2 / span 2;
+}
+
+.b {
+  grid-area: 2 / 2 / span 3 / span 6;
+}
+
+.c {
+  grid-area: 6 / 8 / span 3 / span 1;
+}
+
+-Review
+grid-template-columns defines the number and sizes of the columns of the grid
+grid-template-rows defines the number and sizes of the rows of the grid
+grid-template is a shorthand for defining both grid-template-columns and grid-template-rowsin one line
+grid-gap puts blank space between rows and/or columns of the grid
+grid-row-start and grid-row-end makes elements span certain rows of the grid
+grid-column-start and grid-column-end makes elements span certain columns of the grid
+grid-area is a shorthand for grid-row-start, grid-column-start, grid-row-end, and grid-column-end, all in one line
+Sample
+-Html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style.css'></head>
+  
+<body>
+  <div class="grid">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+    <div class="box c">C</div>
+    <div class="box d">D</div>
+    <div class="box e">E</div>
+  </div>
+</body>
+
+</html>
+
+-css
+
+.grid {
+  border: 2px blue solid;
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: 25% 25% 2fr 1fr;
+  grid-template-rows: repeat(2, 200px);
+  grid-row-gap: 10px;
+  grid-column-gap: 15px;
+
+.box {
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+}
+
+.a {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+
+
+
+
+
+
+-example
+Html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style.css'></head>
+  
+<body>
+  <div class="grid">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+    <div class="box c">C</div>
+    <div class="box d">D</div>
+    <div class="box e">E</div>
+    <div class="box f">F</div>
+    <div class="box g">G</div>
+  </div>
+</body>
+
+</html>
+
+-css
+.grid {
+  border: 2px blue solid;
+  width: 400px;
+  height: 500px;
+}
+
+.box {
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+}
+
+-ADVANCED CSS GRID
+Introduction
+In the previous lesson, you learned all the foundational properties necessary to create a two-dimensional grid-based layout for your web pages! In this lesson, you'll learn the following additional properties that you can use to harness the power of CSS Grid Layout:
+grid-template-areas
+justify-items
+justify-content
+justify-self
+align-items
+align-content
+align-self
+grid-auto-rows
+grid-auto-columns
+grid-auto-flow
+You will also learn about the explicit and implicit grids and grid axes.
+-Grid Template Areas
+Eg
+<div class="container">
+  <header>Welcome!</header>
+  <nav>Links!</nav>
+  <section class="info">Info!</section>
+  <section class="services">Services!</section>
+  <footer>Contact us!</footer>
+</div>
+.container {
+  display: grid;
+  max-width: 900px;
+  position: relative;
+  margin: auto;
+  grid-template-areas: "head head"
+                       "nav nav" 
+                       "info services"
+                       "footer footer";
+  grid-template-rows: 300px 120px 800px 120px;
+  grid-template-columns: 1fr 3fr; 
+}
+
+header {
+  grid-area: head;
+} 
+
+nav {
+  grid-area: nav;
+} 
+
+.info {
+  grid-area: info;
+} 
+
+.services {
+  grid-area: services;
+}
+
+footer {
+  grid-area: footer;
+} 
+-Overlapping Elements
+Another powerful feature of CSS Grid Layout is the ability to easily overlap elements.
+When overlapping elements, it is generally easiest to use grid line names and the grid-area property.
+Remember, the grid-area property accepts 4 values: grid-row-start, grid-column-start, grid-row-end, and grid-column-end.
+
+Eg
+<div class="container">
+  <div class="info">Info!</div> 
+  <img src="#" />
+  <div class="services">Services!</div>
+</div>
+.container {
+  display: grid;
+  grid-template: repeat(8, 200px) / repeat(6, 100px);
+}
+
+.info {
+  grid-area: 1 / 1 / 9 / 4;
+}
+
+.services {
+  grid-area: 1 / 4 / 9 / 7;
+}
+
+img {
+  grid-area: 2 / 3 / 5 / 5;
+  z-index: 5;
+}
+-Justify Items
+There are two axes in a grid layout — the column (or block) axis and the row (or inline) axis.
+<main>
+  <div class="card">Card 1</div>
+  <div class="card">Card 2</div>
+  <div class="card">Card 3</div>
+</main>
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  justify-items: center;
+}
+-Justify Content
+It accepts these values:
+start — aligns the grid to the left side of the grid container
+end — aligns the grid to the right side of the grid container
+center — centers the grid horizontally in the grid container
+stretch — stretches the grid items to increase the size of the grid to expand horizontally across the container
+space-around — includes an equal amount of space on each side of a grid element, resulting in double the amount of space between elements as there is before the first and after the last element
+space-between — includes an equal amount of space between grid items and no space at either end
+space-evenly — places an even amount of space between grid items and at either end
+
+
+<main>
+  <div class="left">Left</div>
+  <div class="right">Right</div>
+</main>
+main {
+  display: grid;
+  width: 1000px;
+  grid-template-columns: 300px 300px;
+  grid-template-areas: "left right"; 
+  justify-content: center;
+}
+In the example above, the grid container is 1000 pixels wide, but we only specified two columns that are 300 pixels each. This will leave 400 pixels of unused space in the grid container.
+justify-content: center; positions the columns in the center of the grid, leaving 200 pixels on the right and 200 pixels on the left of the grid.
+-Align Items
+align-items is a property that positions grid items along the block, or column axis. This means that it positions items from top to bottom.
+align-items accepts these values:
+start — aligns grid items to the top side of the grid area
+end — aligns grid items to the bottom side of the grid area
+center — aligns grid items to the center of the grid area
+stretch — stretches all items to fill the grid area
+main {
+  display: grid;
+  grid-template-rows: repeat(3, 400px);
+  align-items: center;
+}
+-Align Content
+It accepts these positional values:
+start — aligns the grid to the top of the grid container
+end — aligns the grid to the bottom of the grid container
+center — centers the grid vertically in the grid container
+stretch — stretches the grid items to increase the size of the grid to expand vertically across the container
+space-around — includes an equal amount of space on each side of a grid element, resulting in double the amount of space between elements as there is before the first and after the last element
+space-between — includes an equal amount of space between grid items and no space at either end
+space-evenly — places an even amount of space between grid items and at either end
+main {
+  display: grid;
+  height: 600px;
+  rows: 200px 200px;
+  grid-template-areas: "top"
+                       "bottom"; 
+  align-content: center;
+}
+
+-Justify Self and Align Self
+The justify-items and align-items properties specify how all grid items contained within a single container will position themselves along the row and column axes, respectively.
+justify-self specifies how an individual element should position itself with respect to the row axis. This property will override justify-items for any item on which it is declared.
+align-self specifies how an individual element should position itself with respect to the column axis. This property will override align-items for any item on which it is declared.
+They both accept these four properties:
+start — positions grid items on the left side/top of the grid area
+end — positions grid items on the right side/bottom of the grid area
+center — positions grid items on the center of the grid area
+stretch — positions grid items to fill the grid area (default)
+-The justify-items and align-items properties specify how all grid items contained within a single container will position themselves along the row and column axes, respectively.
+justify-self specifies how an individual element should position itself with respect to the row axis. This property will override justify-items for any item on which it is declared.
+align-self specifies how an individual element should position itself with respect to the column axis. This property will override align-items for any item on which it is declared.
+They both accept these four properties:
+start — positions grid items on the left side/top of the grid area
+end — positions grid items on the right side/bottom of the grid area
+center — positions grid items on the center of the grid area
+stretch — positions grid items to fill the grid area (default)
+-Grid Auto Rows and Grid Auto Columns
+CSS Grid provides two properties to specify the size of grid tracks added implicitly: grid-auto-rows and grid-auto-columns.
+grid-auto-rows specifies the height of implicitly added grid rows. grid-auto-columns specifies the width of implicitly added grid columns.
+grid-auto-rows and grid-auto-columns accept the same values as their explicit counterparts, grid-template-rows and grid-template-columns:
+pixels (px)
+percentages (%)
+fractions (fr)
+the repeat() function
+
+<body>
+  <div>Part 1</div>   
+  <div>Part 2</div>
+  <div>Part 3</div>
+  <div>Part 4</div>
+  <div>Part 5</div>
+</body>
+
+body {
+  display: grid;
+  grid: repeat(2, 100px) / repeat(2, 150px); 
+  grid-auto-rows: 50px;
+}
+body {
+  display: grid;
+  grid: repeat(2, 100px) / repeat(2, 150px); 
+  grid-auto-rows: 50px;
+}
+-Grid Auto Flow
+In addition to setting the dimensions of implicitly-added rows and columns, we can specify the order in which they are rendered.
+grid-auto-flow specifies whether new elements should be added to rows or columns.
+grid-auto-flow accepts these values:
+row — specifies the new elements should fill rows from left to right and create new rows when there are too many elements (default)
+column — specifies the new elements should fill columns from top to bottom and create new columns when there are too many elements
+dense — this keyword invokes an algorithm that attempts to fill holes earlier in the grid layout if smaller elements are added
+You can pair row and column with dense, like this: grid-auto-flow: row dense;.
+This property is declared on grid containers.
+-Review
+Great work! You have learned many new properties to use when creating a layout using CSS Grid! Let’s review:
+grid-template-areas specifies grid named grid areas
+grid layouts are two-dimensional: they have a row, or inline, axis and a column, or block, axis.
+justify-items specifies how individual elements should spread across the row axis
+justify-content specifies how groups of elements should spread across the row axis
+justify-self specifies how a single element should position itself with respect to the row axis
+align-items specifies how individual elements should spread across the column axis
+align-content specifies how groups of elements should spread across the column axis
+align-self specifies how a single element should position itself with respect to the column axis
+grid-auto-rows specifies the height of rows added implicitly to the grid
+grid-auto-columns specifies the width of columns added implicitly to the grid
+grid-auto-flow specifies in which direction implicit elements should be created
+This is a great time to experiment with the code in the code editor and try any of the properties you want to practice more! When you’re ready, move on!
+Sample
+-Html
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Savory</title>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <header>
+        <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/savory.svg" class="logo">
+      </header>
+
+      <main>
+        <div class="recipe a">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-1.png" />
+          <h2>CHOCOLATE MOUSSE</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">20 mins</p>
+          <p class="description">
+            This delicious chocolate mousse will delight dinner guests of all ages!</p>
+        </div>
+        <div class="recipe b">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-2.png" />
+          <h2>SMOKED LAMB WITH RICE</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">120 mins</p>
+          <p class="description">
+            Want to feel like your favorite relative came over and made you dinner? This comfort meal of smoked lamb and rice will quickly become a weekend favorite!
+          </p>
+        </div>
+        <div class="recipe c">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-5.png" />
+          <h2>GOAT CHEESE SALAD</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">25 mins</p>
+          <p class="description">
+            In addition to the full flavor of goat cheese, this salad includes kale, avocado, and farro to balance it out.</p>
+        </div>
+        <div class="recipe d">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-4.png" />
+          <h2>CHICKEN SANDWICH</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">45 mins</p>
+          <p class="description">
+            We've packed a lot into this one - shredded cabbage, carmalized onions, deep-fried chicken, chipotle mayo, half-sour pickles, and a toasted sesame bun will leave you thoroughly satisfied!</p>
+        </div>
+        <div class="recipe e">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-3.png" />
+          <h2>SWEET CHURROS</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">90 mins</p>
+          <p class="description">
+            Making this classic summer treat at home will remind you of a childhood spent in the park.</p>
+        </div>
+        <div class="recipe f">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-6.png" />
+          <h2>BERRY PARFAIT</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">10 mins</p>
+          <p class="description">
+            This low-calorie, vitamin-packed parfait is great for breakfast, dessert, or post-workout!</p>
+        </div>
+        
+                <div class="recipe e">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-3.png" />
+          <h2>SWEET CHURROS</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">90 mins</p>
+          <p class="description">
+            Making this classic summer treat at home will remind you of a childhood spent in the park.</p>
+        </div>
+        <div class="recipe f">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-6.png" />
+          <h2>BERRY PARFAIT</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">10 mins</p>
+          <p class="description">
+            This low-calorie, vitamin-packed parfait is great for breakfast, dessert, or post-workout!</p>
+        </div>
+      </main>
+
+      <footer>
+        <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/savory.svg" class="logo">
+      </footer>
+
+    </div>
+  </body>
+
+</html>
+
+-css
+
+
+
+
+
+
+
+
+
+
+
+-example
+-html
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Savory</title>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <header>
+        <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/savory.svg" class="logo">
+      </header>
+
+      <main>
+        <div class="recipe a">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-1.png" />
+          <h2>CHOCOLATE MOUSSE</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">20 mins</p>
+          <p class="description">
+            This delicious chocolate mousse will delight dinner guests of all ages!</p>
+        </div>
+        <div class="recipe b">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-2.png" />
+          <h2>SMOKED LAMB WITH RICE</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">120 mins</p>
+          <p class="description">
+            Want to feel like your favorite relative came over and made you dinner? This comfort meal of smoked lamb and rice will quickly become a weekend favorite!
+          </p>
+        </div>
+        <div class="recipe c">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-5.png" />
+          <h2>GOAT CHEESE SALAD</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">25 mins</p>
+          <p class="description">
+            In addition to the full flavor of goat cheese, this salad includes kale, avocado, and farro to balance it out.</p>
+        </div>
+        <div class="recipe d">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-4.png" />
+          <h2>CHICKEN SANDWICH</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">45 mins</p>
+          <p class="description">
+            We've packed a lot into this one - shredded cabbage, carmalized onions, deep-fried chicken, chipotle mayo, half-sour pickles, and a toasted sesame bun will leave you thoroughly satisfied!</p>
+        </div>
+        <div class="recipe e">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-3.png" />
+          <h2>SWEET CHURROS</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">90 mins</p>
+          <p class="description">
+            Making this classic summer treat at home will remind you of a childhood spent in the park.</p>
+        </div>
+        <div class="recipe f">
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/image-6.png" />
+          <h2>BERRY PARFAIT</h2>
+          <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/time.svg" class="time" />
+          <p class="mins">10 mins</p>
+          <p class="description">
+            This low-calorie, vitamin-packed parfait is great for breakfast, dessert, or post-workout!</p>
+        </div>
+      </main>
+
+      <footer>
+        <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/lesson-ii/savory.svg" class="logo">
+      </footer>
+
+    </div>
+  </body>
+
+</html>
+
+-css
+header, footer {
+  background-color: #ffa500;
+  text-align: center;
+  min-width: 500px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-template-rows: repeat(3, 450px);
+  grid-gap: 20px;
+  margin-top: 44px;
+  grid-auto-rows: 500px;
+}
+
+h2 {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: #ffa500;
+  padding: 10px 0px 10px 10px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.recipe {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.a {
+  
+}
+
+.c {
+  
+}
+
+.time {
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 20px;
+  height: auto;
+}
+
+.mins {
+  display: inline-block;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: #4a4a4a;
+  position: relative;
+  bottom: 5px;
+}
+
+.description {
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.29;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #4a4a4a;
+  padding: 10px 0px 10px 10px;
+  border-top: 1px solid #4a4a4a;
+}
+
+.logo {
+  width: 115px;
+  height: 21.1px;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.container {
+  min-width: 500px;
+  margin: auto;
+}
+
+footer {
+  margin-top: 44px;
+}
+
+
+-ADVANCED CSS GRID
+Grid Template Areas
+The grid-template-areas property allows you to name sections of your web page to use as values in the grid-row-start, grid-row-end, grid-col-start,grid-col-end, and grid-area properties.
+<div class="container">
+  <header>Welcome!</header>
+  <nav>Links!</nav>
+  <section class="info">Info!</section>
+  <section class="services">Services!</section>
+  <footer>Contact us!</footer>
+</div>
+.container {
+  display: grid;
+  max-width: 900px;
+  position: relative;
+  margin: auto;
+  grid-template-areas: "head head"
+                       "nav nav" 
+                       "info services"
+                       "footer footer";
+  grid-template-rows: 300px 120px 800px 120px;
+  grid-template-columns: 1fr 3fr; 
+}
+
+header {
+  grid-area: head;
+} 
+
+nav {
+  grid-area: nav;
+} 
+
+.info {
+  grid-area: info;
+} 
+
+.services {
+  grid-area: services;
+}
+
+footer {
+  grid-area: footer;
+}
+You may want to expand this section of the website to view the code above more clearly.
+In the example above, the HTML creates a web page with five distinct parts.
+The grid-template-areas declaration in the .container rule set creates a 2-column, 4-row layout.
+The grid-template-rows declaration specifies the height of each of the four rows from top to bottom: 300 pixels, 120 pixels, 800 pixels, and 120 pixels.
+The grid-template-columns declaration uses the fr value to cause the left column to use one fourth of the available space on the page and the right column to use three-fourths of the available space on the page.
+In each rule set below .container, we use the grid-area property to tell that section to cover the portion of the page specified. The headerelement spans the first row and both columns. The nav element spans the second row and both columns. The element with class .info spans the third row and left column. The element with class .services spans the third row and right column. The footer element spans the bottom row and both columns.
+That's it! An entire page laid out in 40 lines of code.
+This property is declared on grid containers.
+You can see what you'll be building in this exercise here.
+Instructions
+1.
+In style.css, add the grid-template-areasproperty to the .container rule set.
+Its value should create a 2-column, 4-row layout with these areas:
+header (spans two columns in the first row)
+nav (spans two columns in the second row)
+left (spans one column on the left in the third row)
+right (spans one column on the right in the third row)
+footer (spans two columns in the fourth row)
+
+
+
+
+
+
+
+
+
+
+
+
